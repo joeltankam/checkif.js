@@ -1,0 +1,2 @@
+# if.js
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/e8957c5c3d4841dcbb0ec1c4c86505da)](https://app.codacy.com/app/joel.tankam/if.js?utm_source=github.com&utm_medium=referral&utm_content=joeltankam/if.js&utm_campaign=Badge_Grade_Dashboard)
