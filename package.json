@@ -1,33 +1,36 @@
 {
-  "name": "if.js",
-  "version": "0.0.1",
-  "description": "Javascript check library",
-  "main": "index.js",
-  "scripts": {
-    "test": "jest"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/joeltankam/if.js.git"
-  },
-  "keywords": [
-    "node",
-    "check",
-    "if"
-  ],
-  "author": "Joël TANKAM",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/joeltankam/if.js/issues"
-  },
-  "homepage": "https://github.com/joeltankam/if.js#readme",
-  "devDependencies": {
-    "babel-jest": "^23.6.0",
-    "babel-preset-env": "^1.7.0",
-    "eslint": "^5.6.0",
-    "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-plugin-import": "^2.14.0",
-    "jest": "^23.6.0",
-    "jsdom": "^12.0.0"
-  }
+    "name": "if.js",
+    "version": "0.0.1",
+    "description": "Javascript check library",
+    "main": "index.js",
+    "scripts": {
+        "test": "jest",
+        "test-ci": "jest -i --config jest.config.ci.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/joeltankam/if.js.git"
+    },
+    "keywords": [
+        "node",
+        "check",
+        "if"
+    ],
+    "author": "Joël TANKAM",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/joeltankam/if.js/issues"
+    },
+    "homepage": "https://github.com/joeltankam/if.js#readme",
+    "devDependencies": {
+        "babel-jest": "^23.6.0",
+        "babel-preset-env": "^1.7.0",
+        "eslint": "^5.6.0",
+        "eslint-config-airbnb-base": "^13.1.0",
+        "eslint-plugin-import": "^2.14.0",
+        "jest": "^23.6.0",
+        "jest-junit": "^5.1.0",
+        "jest-silent-reporter": "^0.1.1",
+        "jsdom": "^12.0.0"
+    }
 }
