@@ -1,18 +1,25 @@
 language: node_js
 sudo: false
 node_js:
-  - "8"
-  - "6"
+  - '10'
+
 cache:
   directories:
-    - $HOME/.npm
+    - '.eslintcache'
+    - 'node_modules'
+
 git:
   depth: 10
 branches:
   only:
     - master
-before_install:
-  - "nvm use $TRAVIS_NODE_VERSION"
-  - "npm set loglevel error"
-  - "npm set progress false"
-  - "npm i -g npm@\"^4.0.0\""
+
+install:
+    - npm install -g jest
+    - npm install -g codacy-coverage
+
+script:
+  # Tests with covarage
+  - npm run test-ci
+  # Report coverage on codacy
+  - cat ./coverage/lcov.info | codacy-coverage --projectName if.js --token 1f405c7cc58b480d8e1f96a05a77777a --verbose
