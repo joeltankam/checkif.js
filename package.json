@@ -5,7 +5,7 @@
     "main": "index.js",
     "scripts": {
         "test": "jest",
-        "test-ci": "jest -i --config jest.config.ci.js"
+        "test-ci": "jest -i --coverage --config jest.config.ci.js"
     },
     "repository": {
         "type": "git",
@@ -25,6 +25,7 @@
     "devDependencies": {
         "babel-jest": "^23.6.0",
         "babel-preset-env": "^1.7.0",
+        "codacy-coverage": "^3.1.0",
         "eslint": "^5.6.0",
         "eslint-config-airbnb-base": "^13.1.0",
         "eslint-plugin-import": "^2.14.0",
