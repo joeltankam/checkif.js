@@ -15,8 +15,9 @@ branches:
     - master
 
 install:
-    - npm install -g jest
-    - npm install -g codacy-coverage
+  - npm install -g jest
+  - npm install -g codacy-coverage
+  - npm ci
 
 script:
   # Tests with covarage
