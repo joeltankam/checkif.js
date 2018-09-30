@@ -2,7 +2,7 @@
 
 This library aims to perform different checks in the javascript environment.
 
-[![Build Status](https://travis-ci.com/joeltankam/if.js.svg?branch=master)](https://travis-ci.com/joeltankam/if.js) [![Codacy Badge](https://api.codacy.com/project/badge/Coverage/331aec6489ce4632a4ae702f0b13202b)](https://www.codacy.com/app/joel.tankam/if.js?utm_source=github.com&utm_medium=referral&utm_content=joeltankam/if.js&utm_campaign=Badge_Coverage) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/e8957c5c3d4841dcbb0ec1c4c86505da)](https://app.codacy.com/app/joel.tankam/if.js?utm_source=github.com&utm_medium=referral&utm_content=joeltankam/if.js&utm_campaign=Badge_Grade_Dashboard)
+[![Build Status](https://travis-ci.com/joeltankam/if.js.svg?branch=master)](https://travis-ci.com/joeltankam/if.js) [![Codacy Badge](https://api.codacy.com/project/badge/Coverage/331aec6489ce4632a4ae702f0b13202b)](https://www.codacy.com/app/joel.tankam/if.js?utm_source=github.com&utm_medium=referral&utm_content=joeltankam/if.js&utm_campaign=Badge_Coverage) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/e8957c5c3d4841dcbb0ec1c4c86505da)](https://app.codacy.com/app/joel.tankam/if.js?utm_source=github.com&utm_medium=referral&utm_content=joeltankam/if.js&utm_campaign=Badge_Grade_Dashboard) [![trello if.js](https://img.shields.io/badge/trello-if.js-blue.svg)](https://trello.com/b/dKTqQTVM/ifjs) [![slack if.js](https://img.shields.io/badge/slack-if.js-blue.svg)](https://ifjs.slack.com)
 
 ## Installation
 
@@ -24,7 +24,7 @@ import { is } from 'if.js';
 
 #### Types
 
-This group of methods allows us to verified whether a given object _is_ from a specific type.
+This group of methods allows to verify _if_ a given value _is_ from a specific type.
 
 ##### `null(value)`
 
@@ -171,3 +171,56 @@ is.windowObject(window); // true
 let dom = new JSDOM(`<html !DOCTYPE></html>`)
 is.windowObject(dom.window); // true
 ```
+
+#### RegExp
+
+This group of methods allows to verify _if_ a given string _is_ from a specific known type of value.
+_To be implemented_
+
+#### String
+
+This group of methods allows to verify _if_ a given string _is_ a from a specific format.
+_To be implemented_
+
+#### Arithemetic
+
+This group of methods allows to verify _if_ a given number _is_ a from a specific class of numbers.
+_To be implemented_
+
+#### Environment
+
+This group of methods allows to verify _if_ the current environment _is_ a specific environment.
+_To be implemented_
+
+#### Time
+
+This group of methods allows to verify _if_ a date _is_ a specific kind.
+_To be implemented_
+
+### `all`
+
+```js
+import { all } from 'if.js';
+```
+
+_To be implemented_
+
+### `any`
+
+```js
+import { any } from 'if.js';
+```
+
+_To be implemented_
+
+### `contains`
+
+```js
+import { contains } from 'if.js';
+```
+
+_To be implemented_
+
+## Contributing
+
+Any help is wanted and welcome. You can check out our github [issues](https://github.com/joeltankam/if.js/issues) or [trello](https://trello.com/b/dKTqQTVM) and [slack](https://ifjs.slack.com) pages. Please make sure to add tests for everything new feature you add, aiming at a 100% coverage.
