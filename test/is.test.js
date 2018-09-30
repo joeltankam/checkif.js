@@ -157,6 +157,7 @@ describe('isNumber', () => {
     test('returns true', () => {
         expect(is.number(Number(1))).toBeTruthy();
         expect(is.number(new Number(1))).toBeTruthy();
+        expect(is.number(1)).toBeTruthy();
     });
     test('returns false', () => {
         expect(is.number({})).toBeFalsy();

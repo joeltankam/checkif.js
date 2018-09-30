@@ -1,2 +1,173 @@
 # if.js
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/e8957c5c3d4841dcbb0ec1c4c86505da)](https://app.codacy.com/app/joel.tankam/if.js?utm_source=github.com&utm_medium=referral&utm_content=joeltankam/if.js&utm_campaign=Badge_Grade_Dashboard)
+
+This library aims to perform different checks in the javascript environment.
+
+[![Build Status](https://travis-ci.com/joeltankam/if.js.svg?branch=master)](https://travis-ci.com/joeltankam/if.js) [![Codacy Badge](https://api.codacy.com/project/badge/Coverage/331aec6489ce4632a4ae702f0b13202b)](https://www.codacy.com/app/joel.tankam/if.js?utm_source=github.com&utm_medium=referral&utm_content=joeltankam/if.js&utm_campaign=Badge_Coverage) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/e8957c5c3d4841dcbb0ec1c4c86505da)](https://app.codacy.com/app/joel.tankam/if.js?utm_source=github.com&utm_medium=referral&utm_content=joeltankam/if.js&utm_campaign=Badge_Grade_Dashboard)
+
+## Installation
+
+`if.js` is distributed as a npm package.
+
+```bash
+npm install if.js
+```
+
+## Documentation
+
+The library is constituted of a set of checkers to perfomed different verifications.
+
+### `is`
+
+```js
+import { is } from 'if.js';
+```
+
+#### Types
+
+This group of methods allows us to verified whether a given object _is_ from a specific type.
+
+##### `null(value)`
+
+Check _if_ a given value is `null`.
+
+##### `undefined(value)`
+
+Check _if_ a given value is `undefined`.
+
+##### `nan(value)`
+
+Check _if_ a given value is `NaN`. Same as `Number.isNaN`.
+
+```js
+is.nan(NaN); // true
+is.nan(Number.NaN); // true
+```
+
+##### `array(value)`
+
+Check _if_ a given value is an array. This method is the same as `Array.isArray`, if available.
+
+```js
+is.array([]); // true
+is.array(new Array(0)); // true
+```
+
+##### `boolean(value)`
+
+Check _if_ a given value is a boolean.
+
+```js
+is.boolean(true); // true
+is.boolean(new Boolean(0)); // true
+```
+
+##### `string(value)`
+
+Check _if_ a given value is a boolean.
+
+```js
+is.string(''); // true
+is.string(String('')); // true
+is.string(new String('')); // true
+```
+
+##### `char(value)`
+
+Check _if_ a given value is a char.
+
+```js
+is.char(' '); // true
+is.char('1'); // true
+is.char(1); // false
+```
+
+##### `date(value)`
+
+Check _if_ a given value is a date.
+
+```js
+is.date(new Date('November 23, 1998 03:24:00')); // true, my birthdate btw ;)
+```
+
+##### `number(value)`
+
+Check _if_ a given value is a number.
+
+```js
+is.number(Number(1)); // true
+is.number(new Number(1)); // true
+is.number(1); // false
+```
+
+##### `regexp(value)`
+
+Check _if_ a given value is a RegExp`.
+
+```js
+is.regexp(\a\); // true
+is.regexp(RegExp()); // true
+is.regexp(new RegExp()); // true
+```
+
+##### `object(value)`
+
+Check _if_ a given value is an object.
+
+```js
+is.object({}); // true
+is.object(String(1)); // true
+is.object('1'); // false
+```
+
+##### `jsonObject(value)`
+
+Check _if_ a given value is a pure JSON object.
+
+```js
+is.jsonObject({}); // true
+is.jsonObject({ value: 1 }); // true
+is.jsonObject(new Date()); // false
+```
+
+##### `function(value)`
+
+Check _if_ a given value is a function.
+
+```js
+is.function(function () { }); // true
+is.function(x => x); // true
+is.function(new Function('x', 'return x')); // true
+```
+
+##### `error(value)`
+
+Check _if_ a given value is an error.
+
+```js
+is.error(Error('Fatal error')); // true
+is.error(new Error('Nothing works anymore')); // true
+```
+
+##### `domNode(value)`
+
+Check _if_ a given value is a DOM node.
+
+```js
+// Browser
+is.domNode(window.document.body); // true
+// Node.js
+let dom = new JSDOM(`<html !DOCTYPE><body></body></html>`)
+is.domNode(dom.window.document.body); // true
+```
+
+##### `windowObject(value)`
+
+Check _if_ a given value is a window object.
+
+```js
+// Browser
+is.windowObject(window); // true
+// Node.js
+let dom = new JSDOM(`<html !DOCTYPE></html>`)
+is.windowObject(dom.window); // true
+```
