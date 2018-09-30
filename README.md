@@ -2,7 +2,7 @@
 
 This library aims to perform different checks in the javascript environment.
 
-[![Build Status](https://travis-ci.com/joeltankam/if.js.svg?branch=master)](https://travis-ci.com/joeltankam/if.js) [![Codacy Badge](https://api.codacy.com/project/badge/Coverage/331aec6489ce4632a4ae702f0b13202b)](https://www.codacy.com/app/joel.tankam/if.js?utm_source=github.com&utm_medium=referral&utm_content=joeltankam/if.js&utm_campaign=Badge_Coverage) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/e8957c5c3d4841dcbb0ec1c4c86505da)](https://app.codacy.com/app/joel.tankam/if.js?utm_source=github.com&utm_medium=referral&utm_content=joeltankam/if.js&utm_campaign=Badge_Grade_Dashboard) [![trello if.js](https://img.shields.io/badge/trello-if.js-blue.svg)](https://trello.com/b/dKTqQTVM/ifjs) [![slack if.js](https://img.shields.io/badge/slack-if.js-blue.svg)](https://ifjs.slack.com)
+[![Build Status](https://travis-ci.com/joeltankam/if.js.svg?branch=master)](https://travis-ci.com/joeltankam/if.js) [![Codacy Badge](https://api.codacy.com/project/badge/Coverage/331aec6489ce4632a4ae702f0b13202b)](https://www.codacy.com/app/joel.tankam/if.js?utm_source=github.com&utm_medium=referral&utm_content=joeltankam/if.js&utm_campaign=Badge_Coverage) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/e8957c5c3d4841dcbb0ec1c4c86505da)](https://app.codacy.com/app/joel.tankam/if.js?utm_source=github.com&utm_medium=referral&utm_content=joeltankam/if.js&utm_campaign=Badge_Grade_Dashboard) [![slack if.js](https://img.shields.io/badge/slack-if.js-blue.svg)](https://ifjs.slack.com)
 
 ## Installation
 
@@ -223,4 +223,5 @@ _To be implemented_
 
 ## Contributing
 
-Any help is wanted and welcome. You can check out our github [issues](https://github.com/joeltankam/if.js/issues) or [trello](https://trello.com/b/dKTqQTVM) and [slack](https://ifjs.slack.com) pages. Please make sure to add tests for everything new feature you add, aiming at a 100% coverage.
+Any help is wanted and welcome. You can check out our github [issues](https://github.com/joeltankam/if.js/issues) and [projects](https://github.com/joeltankam/if.js/projects) or our [slack](https://ifjs.slack.com) page.
+Please make sure to add tests for everything new feature you add, aiming at a 100% coverage.
