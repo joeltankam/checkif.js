@@ -213,14 +213,6 @@ import { any } from 'if.js';
 
 _To be implemented_
 
-### `contains`
-
-```js
-import { contains } from 'if.js';
-```
-
-_To be implemented_
-
 ## Contributing
 
 Any help is wanted and welcome. You can check out our github [issues](https://github.com/joeltankam/if.js/issues) and [projects](https://github.com/joeltankam/if.js/projects) or our [slack](https://ifjs.slack.com) page.
