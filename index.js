@@ -3,5 +3,5 @@ import any from './src/any';
 
 export default {
     is,
-    any
+    any,
 };
