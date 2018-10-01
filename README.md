@@ -209,9 +209,16 @@ _To be implemented_
 
 ```js
 import { any } from 'if.js';
-```
 
-_To be implemented_
+any([0,1,2,3], 2); // true
+any([0,1,2,3], x => x === 0); // true
+any({ x : 1, y : 1}, 1); // true
+any({ x : 1, y : 1}, x => x === 1); // true
+any([0,1,2,3], 5); // false
+any([0,1,2,3], x => x === 5); //false
+any({ x : 1, y : 1}, 2);
+any({ x : 1, y : 1}, x => x === 2); // false
+```
 
 ## Contributing
 
