@@ -8,7 +8,7 @@ import is from './is';
 export function any(value, criteria) {
     let func = criteria;
     if(!is.function(criteria)) func = x => x === criteria;
-    if(is.array(value) || is.object(value)) return anyWithArray(value, func);
+    if(is.array(value)) return anyWithArray(value, func);
     if(is.object(value)) return anyWithObject(value, func);
     return false;
 }
