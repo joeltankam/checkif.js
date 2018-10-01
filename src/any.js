@@ -19,7 +19,7 @@ export function any(element, value) {
         });
     }
     if (is.object(element)) {
-        Object.keys(element).forEach((key) =>  {
+        Object.keys(element).forEach((key) => {
             if (element[key].toString() === value.toString()) {
                 doesContain = true;
             }
