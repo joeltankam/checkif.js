@@ -24,14 +24,14 @@ function anyWithObject(value, func) {
 
 /**
  * Check if any element verify a function
- * @param {*} value the array / object to check
- * @param {*} criteria the criteria
+ * @param {*} enumerable the array / object to check
+ * @param {*} matcher the criteria
  */
-export function any(value, criteria) {
-    let func = criteria;
-    if (!is.function(criteria)) func = x => x === criteria;
-    if (is.array(value)) return anyWithArray(value, func);
-    if (is.object(value)) return anyWithObject(value, func);
+export function any(enumerable, matcher) {
+    let func = matcher;
+    if (!is.function(matcher)) func = x => x === matcher;
+    if (is.array(enumerable)) return anyWithArray(enumerable, func);
+    if (is.object(enumerable)) return anyWithObject(enumerable, func);
     return false;
 }
 
