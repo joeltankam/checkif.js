@@ -68,7 +68,7 @@ describe('any object', () => {
         expect(found2);
     });
     test('does not contain string', () => {
-        const notFound = any('not here');
+        const notFound = any(object, 'not here');
         expect(!notFound);
     });
     test('does contain function', () => {
@@ -78,5 +78,36 @@ describe('any object', () => {
     test('does not contain function', () => {
         const notFound = any(object, (x) => x === 5);
         expect(!notFound);
+    });
+});
+
+describe('throw error for non arrays and objects', () => {
+    test('number', () => {
+        try {
+            any(4, 2);
+        } catch (err) {
+            expect(err).toBeTruthy();
+        }
+    });
+    test('string', () => {
+        try {
+            any('hello', 'hi');
+        } catch (err) {
+            expect(err).toBeTruthy();
+        }
+    });
+    test('date', () => {
+        try {
+            any(new Date(Date.now()), new Date(Date.now()));
+        } catch (err) {
+            expect(err).toBeTruthy();
+        }
+    });
+    test('boolean', () => {
+        try {
+            any(true, 'hi');
+        } catch (err) {
+            expect(err).toBeTruthy();
+        }
     });
 });

@@ -8,25 +8,25 @@ import is from './is';
  */
 export function any(element, value) {
     let doesContain = false;
+    if (!is.array(element) && !is.object(element)) {
+        throw new Error('Element should be of array or object type.');
+    }
     if (is.array(element)) {
-        for (const val of element) {
+        element.forEach((val) => {
             if (val.toString() === value.toString()) {
                 doesContain = true;
-                break;
             }
-        }
-        return doesContain;
+        });
     }
     if (is.object(element)) {
-        for (const key of Object.keys(element)) {
+        Object.keys(element).forEach((key) =>  {
             if (element[key].toString() === value.toString()) {
                 doesContain = true;
-                break;
             }
-        }
-        return doesContain;
+        });
     }
+    return doesContain;
 }
 export default {
-    any
-}
+    any,
+};
