@@ -197,3 +197,15 @@ describe('isWindowObject', () => {
     });
     testFalsyWithNullable(is.windowObject);
 });
+
+describe('matchesAll', () => {
+    test('returns true on matching array', () => {
+        expect(is.all([0, 0, 0, 0], 0)).toBeTruthy();
+    });
+    test('returns false on mismatching array', () => {
+        expect(is.all([0, 1, 2, 3], 0)).toBeFalsy();
+    });
+    test('returns false on mismatching array', () => {
+        expect(is.all([0, '0'], 0)).toBeFalsy();
+    });
+});

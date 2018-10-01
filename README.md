@@ -201,9 +201,13 @@ _To be implemented_
 
 ```js
 import { all } from 'if.js';
-```
 
-_To be implemented_
+let array1 = [0, 1, 2, 3];
+let array2 = [0, 0, 0, 0];
+
+is.all(array1, 0); // false
+is.all(array2, 0); // true
+```
 
 ### `any`
 

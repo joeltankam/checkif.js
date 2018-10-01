@@ -125,6 +125,20 @@ export function isWindowObject(value) {
     return value != null && typeof value === 'object' && 'setInterval' in value;
 }
 
+/**
+ * Returns whether all values in the 
+ * array are equal to a given value.
+ * @param {Array} array the array to check
+ * @param {*} value the value to match
+ */
+export function matchesAll(array, value) {
+    for (var i = 0; i < array.length; i++) {
+        if (array[i] !== value) return false;
+    }
+
+    return true;
+}
+
 export default {
     object: isObject,
     array: isArray,
@@ -142,4 +156,5 @@ export default {
     regexp: isRegexp,
     undefined: isUndefined,
     windowObject: isWindowObject,
+    all: matchesAll,
 };
