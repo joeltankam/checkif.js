@@ -127,22 +127,29 @@ export function isWindowObject(value) {
 
 /**
  * Returns whether all values in the 
- * array are equal to a given value.
- * @param {Array} array the array to check
- * @param {*} value the value or function to match
+ * array/object are equal to a given 
+ * value
+ * @param {*} value the array or object to check
+ * @param {*} other the value or function to match
  */
-export function matchesAll(array, value) {
-    if (isFunction(value)) {
-        for (var i = 0; i < array.length; i++) {
-            if (!value(array[i])) return false;
+export function matchesAll(value, other) {
+    if (isArray(value)) {
+        if (isFunction(other)) {
+            for (var i = 0; i < value.length; i++) {
+                if (!other(value[i])) return false;
+            }
+        } else {
+            for (var i = 0; i < value.length; i++) {
+                if (value[i] !== other) return false;
+            }
         }
-    } else {
-        for (var i = 0; i < array.length; i++) {
-            if (array[i] !== value) return false;
-        }
-    }
 
-    return true;
+        return true;
+    } else if (isObject(value)) {
+        return matchesAll(Object.values(value), other);
+    } else {
+        return false;
+    }
 }
 
 export default {
