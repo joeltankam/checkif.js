@@ -1,4 +1,5 @@
 import any from '../src/any';
+import { testFalsyWithNullable } from './utils';
 
 describe('any', () => {
     test('returns true', () => {
@@ -13,4 +14,5 @@ describe('any', () => {
         expect(any({ x : 1, y : 1}, 2)).toBeFalsy();
         expect(any({ x : 1, y : 1}, x => x === 2)).toBeFalsy();
     });
+    testFalsyWithNullable(any);
 });
