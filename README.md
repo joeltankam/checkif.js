@@ -200,13 +200,14 @@ _To be implemented_
 ### `all`
 
 ```js
-import { all } from 'if.js';
-
 let array1 = [0, 1, 2, 3];
 let array2 = [0, 0, 0, 0];
 
 is.all(array1, 0); // false
 is.all(array2, 0); // true
+
+is.all(array1, x => x === 0); // false
+is.all(array2, x => x === 0); // true
 ```
 
 ### `any`

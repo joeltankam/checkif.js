@@ -198,7 +198,7 @@ describe('isWindowObject', () => {
     testFalsyWithNullable(is.windowObject);
 });
 
-describe('matchesAll', () => {
+describe('matchesAll (value)', () => {
     test('returns true on matching array', () => {
         expect(is.all([0, 0, 0, 0], 0)).toBeTruthy();
     });
@@ -207,5 +207,17 @@ describe('matchesAll', () => {
     });
     test('returns false on mismatching array', () => {
         expect(is.all([0, '0'], 0)).toBeFalsy();
+    });
+});
+
+describe('matchesAll (function)', () => {
+    test('returns true on matching array', () => {
+        expect(is.all([0, 0, 0, 0], x => x === 0)).toBeTruthy();
+    });
+    test('returns false on mismatching array', () => {
+        expect(is.all([0, 1, 2, 3], x => x === 0)).toBeFalsy();
+    });
+    test('returns false on mismatching array', () => {
+        expect(is.all([0, '0'], x => x === 0)).toBeFalsy();
     });
 });
