@@ -125,33 +125,6 @@ export function isWindowObject(value) {
     return value != null && typeof value === 'object' && 'setInterval' in value;
 }
 
-/**
- * Returns whether all values in the 
- * array/object are equal to a given 
- * value
- * @param {*} enumerable the array or object to check
- * @param {*} matcher the value or function to match
- */
-export function matchesAll(enumerable, matcher) {
-    if (isArray(enumerable)) {
-        if (isFunction(matcher)) {
-            for (var i = 0; i < enumerable.length; i++) {
-                if (!matcher(enumerable[i])) return false;
-            }
-        } else {
-            for (var i = 0; i < enumerable.length; i++) {
-                if (enumerable[i] !== matcher) return false;
-            }
-        }
-
-        return true;
-    } else if (isObject(enumerable)) {
-        return matchesAll(Object.values(enumerable), matcher);
-    }
-        
-    return false;
-}
-
 export default {
     object: isObject,
     array: isArray,
@@ -168,6 +141,5 @@ export default {
     number: isNumber,
     regexp: isRegexp,
     undefined: isUndefined,
-    windowObject: isWindowObject,
-    all: matchesAll,
+    windowObject: isWindowObject
 };
