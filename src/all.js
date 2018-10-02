@@ -10,11 +10,11 @@ import is from './is';
 export default function matchesAll(enumerable, matcher) {
     if (is.array(enumerable)) {
         if (is.function(matcher)) {
-            for (let i = 0; i < enumerable.length; i++) {
+            for (let i = 0; i < enumerable.length; i += 1) {
                 if (!matcher(enumerable[i])) return false;
             }
         } else {
-            for (let i = 0; i < enumerable.length; i++) {
+            for (let i = 0; i < enumerable.length; i += 1) {
                 if (enumerable[i] !== matcher) return false;
             }
         }
