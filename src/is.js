@@ -141,5 +141,5 @@ export default {
     number: isNumber,
     regexp: isRegexp,
     undefined: isUndefined,
-    windowObject: isWindowObject
+    windowObject: isWindowObject,
 };
