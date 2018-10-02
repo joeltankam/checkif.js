@@ -5,7 +5,6 @@ function anyWithArray(value, func) {
     value.forEach((elt) => {
         if (func(elt)) {
             found = true;
-            return found;
         }
     });
     return found;
@@ -16,7 +15,6 @@ function anyWithObject(value, func) {
     Object.keys(value).forEach((key) => {
         if (func(value[key])) {
             found = true;
-            return found;
         }
     });
     return found;
