@@ -14,7 +14,8 @@
     "keywords": [
         "node",
         "check",
-        "if"
+        "if",
+        "any"
     ],
     "author": "Joël TANKAM",
     "license": "MIT",

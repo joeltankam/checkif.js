@@ -211,7 +211,25 @@ _To be implemented_
 import { any } from 'if.js';
 ```
 
-_To be implemented_
+A method to check through the elements of an array or object (single depth) and find is a given value exists. The given value may be a number, string, or a function.
+
+```js
+// number example
+const sevenHere = any([7, 2, 9, 1], 9);
+console.log(sevenHere) // expected output: true
+```
+
+```js
+// string example
+const wordHere = any(['there', 'are', 'a bunch', 'of', 'words'], 'words');
+console.log(wordHere); // expected output: true
+```
+
+```js
+//function example
+const functionHere = any([0, 1, 5, 7], (x) => x === 5);
+console.log(functionHere); // expected output: true
+```
 
 ## Contributing
 
