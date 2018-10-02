@@ -223,4 +223,5 @@ any({ x : 1, y : 1}, x => x === 2); // false
 ## Contributing
 
 Any help is wanted and welcome. You can check out our github [issues](https://github.com/joeltankam/if.js/issues) and [projects](https://github.com/joeltankam/if.js/projects) or our [slack](https://ifjs.slack.com) page.
-Please make sure to add tests for everything new feature you add, aiming at a 100% coverage.
+
+Please follow our [contributing guidelines](https://github.com/joeltankam/if.js/blob/master/CONTRIBUTING.md).
