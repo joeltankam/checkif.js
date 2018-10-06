@@ -1,15 +1,15 @@
-# checkif
+# checkif.js
 
 This library aims to perform different checks in the javascript environment.
 
-[![Build Status](https://travis-ci.com/joeltankam/checkif.svg?branch=master)](https://travis-ci.com/joeltankam/checkif) [![Codacy Badge](https://api.codacy.com/project/badge/Coverage/331aec6489ce4632a4ae702f0b13202b)](https://www.codacy.com/app/joel.tankam/checkif?utm_source=github.com&utm_medium=referral&utm_content=joeltankam/checkif&utm_campaign=Badge_Coverage) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/e8957c5c3d4841dcbb0ec1c4c86505da)](https://app.codacy.com/app/joel.tankam/checkif?utm_source=github.com&utm_medium=referral&utm_content=joeltankam/checkif&utm_campaign=Badge_Grade_Dashboard) [![slack checkif](https://img.shields.io/badge/slack-checkif-blue.svg)](https://ifjs.slack.com)
+[![Build Status](https://travis-ci.com/joeltankam/checkif.js.svg?branch=master)](https://travis-ci.com/joeltankam/checkif.js) [![Codacy Badge](https://api.codacy.com/project/badge/Coverage/331aec6489ce4632a4ae702f0b13202b)](https://www.codacy.com/app/joel.tankam/checkif.js?utm_source=github.com&utm_medium=referral&utm_content=joeltankam/checkif.js&utm_campaign=Badge_Coverage) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/e8957c5c3d4841dcbb0ec1c4c86505da)](https://app.codacy.com/app/joel.tankam/checkif.js?utm_source=github.com&utm_medium=referral&utm_content=joeltankam/checkif.js&utm_campaign=Badge_Grade_Dashboard) [![slack checkif.js](https://img.shields.io/badge/slack-checkif.js-blue.svg)](https://ifjs.slack.com)
 
 ## Installation
 
-`checkif` is distributed as a npm package.
+`checkif.js` is distributed as a npm package.
 
 ```bash
-npm install checkif
+npm install checkif.js
 ```
 
 ## Documentation
@@ -19,7 +19,7 @@ The library is constituted of a set of checkers to perfomed different verificati
 ### `is`
 
 ```js
-import { is } from 'checkif';
+import { is } from 'checkif.js';
 ```
 
 #### Types
@@ -200,7 +200,7 @@ _To be implemented_
 ### `all`
 
 ```js
-import { all } from 'checkif';
+import { all } from 'checkif.js';
 ```
 
 _To be implemented_
@@ -208,13 +208,13 @@ _To be implemented_
 ### `any`
 
 ```js
-import { any } from 'checkif';
+import { any } from 'checkif.js';
 ```
 
 _To be implemented_
 
 ## Contributing
 
-Any help is wanted and welcome. You can check out our github [issues](https://github.com/joeltankam/checkif/issues) and [projects](https://github.com/joeltankam/checkif/projects) or our [slack](https://ifjs.slack.com) page.
+Any help is wanted and welcome. You can check out our github [issues](https://github.com/joeltankam/checkif.js/issues) and [projects](https://github.com/joeltankam/checkif.js/projects) or our [slack](https://ifjs.slack.com) page.
 
-Please follow our [contributing guidelines](https://github.com/joeltankam/checkif/blob/master/CONTRIBUTING.md).
+Please follow our [contributing guidelines](https://github.com/joeltankam/checkif.js/blob/master/CONTRIBUTING.md).

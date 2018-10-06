@@ -1,5 +1,5 @@
 {
-    "name": "if.js",
+    "name": "checkif.js",
     "version": "0.0.1",
     "description": "Javascript check library",
     "main": "index.js",
@@ -9,7 +9,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/joeltankam/checkif.git"
+        "url": "git+https://github.com/joeltankam/checkif.js.git"
     },
     "keywords": [
         "node",
@@ -19,9 +19,9 @@
     "author": "Joël TANKAM",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/joeltankam/checkif/issues"
+        "url": "https://github.com/joeltankam/checkif.js/issues"
     },
-    "homepage": "https://github.com/joeltankam/checkif#readme",
+    "homepage": "https://github.com/joeltankam/checkif.js#readme",
     "devDependencies": {
         "babel-jest": "^23.6.0",
         "babel-preset-env": "^1.7.0",

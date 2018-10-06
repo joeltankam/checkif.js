@@ -23,4 +23,4 @@ script:
   # Tests with covarage
   - npm run test-ci
   # Report coverage on codacy
-  - cat ./coverage/lcov.info | codacy-coverage --projectName checkif --token 1f405c7cc58b480d8e1f96a05a77777a --verbose
+  - cat ./coverage/lcov.info | codacy-coverage --projectName checkif.js --token 1f405c7cc58b480d8e1f96a05a77777a --verbose
