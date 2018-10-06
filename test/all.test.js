@@ -1,45 +1,27 @@
 import all from '../src/all';
+import { testFalsyWithNullable } from './utils';
 
-describe('matchesAll (value)', () => {
-    test('returns true on matching array', () => {
-        expect(all([0, 0, 0, 0], 0)).toBeTruthy();
+describe('all', () => {
+    describe('on array', () => {
+        test('returns true', () => {
+            expect(all([0, 0, 0, 0], 0)).toBeTruthy();
+            expect(all([true, true, true, true], x => x === true)).toBeTruthy();
+        });
+        test('returns false', () => {
+            expect(all([0, 1, 2, 3], 1)).toBeFalsy();
+            expect(all([0, 1, 2, 3], x => x === 1)).toBeFalsy();
+        });
     });
-    test('returns false on mismatching array', () => {
-        expect(all([0, 1, 2, 3], 0)).toBeFalsy();
+    describe('on object', () => {
+        test('returns true', () => {
+            expect(all({ x: 1, y: 1 }, 1)).toBeTruthy();
+            let a = {};
+            expect(all({ x: a, y: a }, x => x === a)).toBeTruthy();
+        });
+        test('returns false', () => {
+            expect(all({ x: 1, y: true }, 1)).toBeFalsy();
+            expect(all({ x: 0, y: new Number(0) }, x => x === 0)).toBeFalsy();
+        });
     });
-    test('returns false on mismatching array', () => {
-        expect(all([0, '0'], 0)).toBeFalsy();
-    });
-
-    test('returns true on matching object', () => {
-        expect(all({ a: 0, b: 0, c: 0, d: 0 }, 0)).toBeTruthy();
-    });
-    test('returns false on mismatching object', () => {
-        expect(all({ a: 0, b: 1, c: 2, d: 3 }, 0)).toBeFalsy();
-    });
-    test('returns false on mismatching object', () => {
-        expect(all({ a: 0, b: '0' }, 0)).toBeFalsy();
-    });
-});
-
-describe('matchesAll (function)', () => {
-    test('returns true on matching array', () => {
-        expect(all([0, 0, 0, 0], x => x === 0)).toBeTruthy();
-    });
-    test('returns false on mismatching array', () => {
-        expect(all([0, 1, 2, 3], x => x === 0)).toBeFalsy();
-    });
-    test('returns false on mismatching array', () => {
-        expect(all([0, '0'], x => x === 0)).toBeFalsy();
-    });
-
-    test('returns true on matching object', () => {
-        expect(all({ a: 0, b: 0, c: 0, d: 0 }, x => x === 0)).toBeTruthy();
-    });
-    test('returns false on mismatching object', () => {
-        expect(all({ a: 0, b: 1, c: 2, d: 3 }, x => x === 0)).toBeFalsy();
-    });
-    test('returns false on mismatching object', () => {
-        expect(all({ a: 0, b: '0' }, x => x === 0)).toBeFalsy();
-    });
+    testFalsyWithNullable(all);
 });
