@@ -201,9 +201,25 @@ _To be implemented_
 
 ```js
 import { all } from 'checkif.js';
-```
 
-_To be implemented_
+let array1 = [0, 1, 2, 3];
+let array2 = [0, 0, 0, 0];
+
+is.all(array1, 0); // false
+is.all(array2, 0); // true
+
+is.all(array1, x => x === 0); // false
+is.all(array2, x => x === 0); // true
+
+let obj1 = {a:0, b:1, c:2, d:3}
+let obj1 = {a:0, b:0, c:0, d:0}
+
+is.all(obj1, 0); // false
+is.all(obj2, 0); // true
+
+is.all(obj1, x => x === 0); // false
+is.all(obj2, x => x === 0); // true
+```
 
 ### `any`
 
