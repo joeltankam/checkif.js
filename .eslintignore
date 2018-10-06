@@ -1,5 +1,8 @@
 # jest config file
 jest.config.js
 
-# test folder
-test
+# tests
+test/
+
+# distrbution
+dist/
