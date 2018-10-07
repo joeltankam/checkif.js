@@ -228,7 +228,7 @@ Feel free to build complex logic for your checks.
 
 ```js
 import { all, is } from 'checkif.js';
-all({ x: ['a','b'], y: ['a', 'c'] }, x => all(x, is.char)); // true
+all({ x: ['a', 'b'], y: ['a', 'c'] }, x => all(x, is.char)); // true
 ```
 
 ### `any`
