@@ -15,7 +15,7 @@ export default function all(enumerable, matcher) {
         return true;
     }
     if (isObject(enumerable)) {
-        return all(Object.values(enumerable), matcher);
+        return all(Object.values(enumerable), matcherFunction);
     }
 
     return false;
