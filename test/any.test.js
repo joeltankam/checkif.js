@@ -22,5 +22,17 @@ describe('any', () => {
             expect(any({ x: 1, y: 1 }, x => x === 2)).toBeFalsy();
         });
     });
+    describe('strict mode', () => {
+        test('returns true', () => {
+            let _function = x => x % 2;
+            expect(any([0, _function], _function, true)).toBeTruthy();
+            expect(any({ x: 0, y: _function }, _function, true)).toBeTruthy();
+        });
+        test('returns false', () => {
+            let _function = x => x % 2;
+            expect(any([0, _function], _function, false)).toBeFalsy();
+            expect(any({ x: 0, y: _function }, _function)).toBeFalsy();
+        });
+    });
     testFalsyWithNullable(any);
 });
