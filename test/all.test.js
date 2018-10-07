@@ -23,5 +23,19 @@ describe('all', () => {
             expect(all({ x: 0, y: new Number(0) }, x => x === 0)).toBeFalsy();
         });
     });
+    describe('strict mode', () => {
+        test('returns true', () => {
+            let _function = x => x % 2;
+            expect(all([_function, _function], _function, true)).toBeTruthy();
+            _function = function () { };
+            expect(all({ x: _function, y: _function }, _function, true)).toBeTruthy();
+        });
+        test('returns false', () => {
+            let _function = x => x % 2;
+            expect(all({ x: _function, y: _function }, _function)).toBeFalsy();
+            _function = function () { };
+            expect(all([_function, _function], _function, false)).toBeFalsy();
+        });
+    });
     testFalsyWithNullable(all);
 });
