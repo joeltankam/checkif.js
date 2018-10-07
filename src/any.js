@@ -1,36 +1,22 @@
-import is from './is';
-
-function anyWithArray(value, func) {
-    let found = false;
-    value.forEach((elt) => {
-        if (func(elt)) {
-            found = true;
-        }
-    });
-    return found;
-}
-
-function anyWithObject(value, func) {
-    let found = false;
-    Object.keys(value).forEach((key) => {
-        if (func(value[key])) {
-            found = true;
-        }
-    });
-    return found;
-}
+import { isArray, isFunction, isObject } from './is';
 
 /**
- * Check if any element verify a function
- * @param {*} enumerable the array / object to check
- * @param {*} matcher the criteria
+ * Returns whether all values in an array/object matches
+ * @param {*} enumerable the array or object to check
+ * @param {*} matcher the value or function to match
  */
-export function any(enumerable, matcher) {
-    let func = matcher;
-    if (!is.function(matcher)) func = x => x === matcher;
-    if (is.array(enumerable)) return anyWithArray(enumerable, func);
-    if (is.object(enumerable)) return anyWithObject(enumerable, func);
+export default function any(enumerable, matcher) {
+    let matcherFunction = matcher;
+    if (!isFunction(matcher)) matcherFunction = x => x === matcher;
+    if (isArray(enumerable)) {
+        for (let i = 0; i < enumerable.length; i += 1) {
+            if (matcherFunction(enumerable[i])) return true;
+        }
+        return false;
+    }
+    if (isObject(enumerable)) {
+        return any(Object.values(enumerable), matcherFunction);
+    }
+
     return false;
 }
-
-export default any;

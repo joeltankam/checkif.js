@@ -205,7 +205,7 @@ import { all } from 'checkif.js';
 
 This method verifies _if_ _all_ elements in a given enumerable (array or object) match a specific value or function.
 
-#### Array
+#### `all` on arrays
 
 ```js
 all([0, 0, 0, 0], 0); // true
@@ -214,7 +214,7 @@ all([2, 4, 6, 8], x => x%2 === 0); // true
 all([0, 1, 2, 3], 1); // false
 ```
 
-#### Object
+#### `all` on objects
 
 ```js
 all({ x: 1, y: 1 }, 1); // true
@@ -245,16 +245,28 @@ all({ x: ['a', 'b'], y: ['a', 'c'] }, x => all(x, is.char)); // true
 ### `any`
 
 ```js
-import { any } from 'checkif.js';
+import { all } from 'checkif.js';
 ```
 
+This method verifies _if_ _any_ element in a given enumerable (array or object) match a specific value or function.
+
+#### `any` on arrays
+
+```js
 any([0,1,2,3], 2); // true
 any([0,1,2,3], x => x === 0); // true
+
+all([0, 1, 2, 3], 1); // false
+any([0,1,2,3], x => x === 5); //false
+```
+
+#### `any` on objects
+
+```js
 any({ x : 1, y : 1}, 1); // true
 any({ x : 1, y : 1}, x => x === 1); // true
-any([0,1,2,3], 5); // false
-any([0,1,2,3], x => x === 5); //false
-any({ x : 1, y : 1}, 2);
+
+any({ x : 1, y : 1}, 2); // false
 any({ x : 1, y : 1}, x => x === 2); // false
 ```
 
