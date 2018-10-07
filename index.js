@@ -1,7 +1,2 @@
-import is from './src/is';
-import all from './src/all';
-
-export default {
-    is,
-    all,
-};
+export { default as is } from './src/is';
+export { default as all } from './src/all';
