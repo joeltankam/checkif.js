@@ -201,24 +201,34 @@ _To be implemented_
 
 ```js
 import { all } from 'checkif.js';
+```
 
-let array1 = [0, 1, 2, 3];
-let array2 = [0, 0, 0, 0];
+This method verifies _if_ _all_ elements in a given enumerable (array or object) match a specific value or function.
 
-is.all(array1, 0); // false
-is.all(array2, 0); // true
+#### Array
 
-is.all(array1, x => x === 0); // false
-is.all(array2, x => x === 0); // true
+```js
+all([0, 0, 0, 0], 0); // true
+all([2, 4, 6, 8], x => x%2 === 0); // true
 
-let obj1 = {a:0, b:1, c:2, d:3}
-let obj1 = {a:0, b:0, c:0, d:0}
+all([0, 1, 2, 3], 1); // false
+```
 
-is.all(obj1, 0); // false
-is.all(obj2, 0); // true
+#### Object
 
-is.all(obj1, x => x === 0); // false
-is.all(obj2, x => x === 0); // true
+```js
+all({ x: 1, y: 1 }, 1); // true
+let a = {};
+all({ x: a, y: a }, x => x === a); // true
+
+all({ x: 0, y: new Number(0) }, function(x){ return x === 0; }); // false
+```
+
+Feel free to build complex logic for your checks.
+
+```js
+import { isChar } from './is';
+all({ x: ['a','b'], y: ['a', 'c'] }, x => all(x, isChar)); // true
 ```
 
 ### `any`
