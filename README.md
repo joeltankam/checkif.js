@@ -156,7 +156,7 @@ Check _if_ a given value _is_ a DOM node.
 // Browser
 is.domNode(window.document.body); // true
 // Node.js
-let dom = new JSDOM(`<html !DOCTYPE><body></body></html>`)
+let dom = new JSDOM(`<html !DOCTYPE><body></body></html>`);
 is.domNode(dom.window.document.body); // true
 ```
 
@@ -227,8 +227,8 @@ all({ x: 0, y: new Number(0) }, function(x){ return x === 0; }); // false
 Feel free to build complex logic for your checks.
 
 ```js
-import { isChar } from './is';
-all({ x: ['a','b'], y: ['a', 'c'] }, x => all(x, isChar)); // true
+import { all, is } from 'checkif.js';
+all({ x: ['a','b'], y: ['a', 'c'] }, x => all(x, is.char)); // true
 ```
 
 ### `any`
