@@ -4,6 +4,10 @@
         "indent": [
             "warn",
             4
+        ],
+        "linebreak-style": [
+            "warn",
+            "unix"
         ]
     }
 }

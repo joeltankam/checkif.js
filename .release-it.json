@@ -1,0 +1,4 @@
+{
+    "verbose": true,
+    "buildCommand": "npm run build"
+}

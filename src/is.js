@@ -1,7 +1,7 @@
 const { toString } = Object.prototype;
 
 /**
- * Returns whether a given value is an object
+ * Returns whether a given value is an Object
  * @param {*} value the value to check
  */
 export function isObject(value) {
@@ -18,7 +18,7 @@ export function isArray(value) {
 }
 
 /**
- * Returns whether a given value is Boolean
+ * Returns whether a given value is a Boolean
  * @param {*} value the value to check
  */
 export function isBoolean(value) {
@@ -26,7 +26,7 @@ export function isBoolean(value) {
 }
 
 /**
- * Returns whether a given value is String
+ * Returns whether a given value is a String
  * @param {*} value the value to check
  */
 export function isString(value) {
@@ -34,7 +34,7 @@ export function isString(value) {
 }
 
 /**
- * Returns whether a given value is Char
+ * Returns whether a given value is a Char
  * @param {*} value the value to check
  */
 export function isChar(value) {
@@ -42,7 +42,7 @@ export function isChar(value) {
 }
 
 /**
- * Returns whether a given value is Date Object
+ * Returns whether a given value is a Date
  * @param {*} value the value to check
  */
 export function isDate(value) {
@@ -58,7 +58,7 @@ export function isDomNode(object) {
 }
 
 /**
- * Returns whether a given value is Error object
+ * Returns whether a given value is an Error
  * @param {*} value the value to check
  */
 export function isError(value) {
@@ -66,7 +66,7 @@ export function isError(value) {
 }
 
 /**
- * Returns whether a given value is function
+ * Returns whether a given value is a Function
  * @param {*} value the value to check
  */
 export function isFunction(value) {
@@ -94,7 +94,7 @@ export function isNull(value) {
 }
 
 /**
- * Returns whether a given value is number
+ * Returns whether a given value is a Number
  * @param {*} value the value to check
  */
 export function isNumber(value) {
@@ -102,7 +102,7 @@ export function isNumber(value) {
 }
 
 /**
- * Returns whether a given value is RegExp
+ * Returns whether a given value is a RegExp
  * @param {*} value the value to check
  */
 export function isRegexp(value) {
@@ -118,7 +118,7 @@ export function isUndefined(value) {
 }
 
 /**
- * Returns whether a given value is window
+ * Returns whether a given value is window object
  * @param {*} value the value to check
  */
 export function isWindowObject(value) {
