@@ -2,7 +2,7 @@
 
 This library aims to perform various checks in the javascript environment.
 
-[![Build Status](https://travis-ci.com/joeltankam/checkif.js.svg?branch=master)](https://travis-ci.com/joeltankam/checkif.js) [![Codacy Badge](https://api.codacy.com/project/badge/Coverage/331aec6489ce4632a4ae702f0b13202b)](https://www.codacy.com/app/joel.tankam/checkif.js?utm_source=github.com&utm_medium=referral&utm_content=joeltankam/checkif.js&utm_campaign=Badge_Coverage) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/e8957c5c3d4841dcbb0ec1c4c86505da)](https://app.codacy.com/app/joel.tankam/checkif.js?utm_source=github.com&utm_medium=referral&utm_content=joeltankam/checkif.js&utm_campaign=Badge_Grade_Dashboard) [![slack checkif.js](https://img.shields.io/badge/slack-checkif.js-blue.svg)](https://ifjs.slack.com)
+[![Build Status](https://travis-ci.com/joeltankam/checkif.js.svg?branch=master)](https://travis-ci.com/joeltankam/checkif.js) [![Codacy Badge](https://api.codacy.com/project/badge/Coverage/331aec6489ce4632a4ae702f0b13202b)](https://www.codacy.com/app/joel.tankam/checkif.js?utm_source=github.com&utm_medium=referral&utm_content=joeltankam/checkif.js&utm_campaign=Badge_Coverage) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/e8957c5c3d4841dcbb0ec1c4c86505da)](https://app.codacy.com/app/joel.tankam/checkif.js?utm_source=github.com&utm_medium=referral&utm_content=joeltankam/checkif.js&utm_campaign=Badge_Grade_Dashboard) [![npm version](https://badge.fury.io/js/checkif.js.svg)](https://badge.fury.io/js/checkif.js) [![slack checkif.js](https://img.shields.io/badge/slack-checkif.js-blue.svg)](https://ifjs.slack.com)
 
 ## Installation
 
