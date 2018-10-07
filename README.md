@@ -224,6 +224,17 @@ all({ x: a, y: a }, x => x === a); // true
 all({ x: 0, y: new Number(0) }, function(x){ return x === 0; }); // false
 ```
 
+#### Strict mode
+
+The second parameter of `all()` is automatically resolved as a matcher function when it's a function. But you may want to check if the values are exactly equal to the function (as a value). In this case, you should use the _strict mode_ by setting the 3rd parameter to `true` (default `false`).
+
+```js
+import { all } from 'checkif.js';
+
+let _function = function (x) { ... };
+all({ x: _function, y: _function }, _function, true); // true
+```
+
 Feel free to build complex logic for your checks.
 
 ```js
