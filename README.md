@@ -270,17 +270,6 @@ any({ x : 1, y : 1}, 2); // false
 any({ x : 1, y : 1}, x => x === 2); // false
 ```
 
-#### Strict mode
-
-The second parameter of `any()` is automatically resolved as a matcher function when it's a function. But you may want to check if the values are exactly equal to the function (as a value). In this case, you should use the _strict mode_ by setting the 3rd parameter to `true` (default `false`).
-
-```js
-import { any } from 'checkif.js';
-
-let _function = function (x) { ... };
-any({ x: 0, y: _function }, _function, true); // true
-```
-
 ## Contributing
 
 Any help is wanted and welcome. You can check out our github [issues](https://github.com/joeltankam/checkif.js/issues) and [projects](https://github.com/joeltankam/checkif.js/projects) or our [slack](https://ifjs.slack.com) page.
