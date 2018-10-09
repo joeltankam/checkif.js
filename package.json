@@ -1,6 +1,6 @@
 {
     "name": "checkif.js",
-    "version": "0.3.0",
+    "version": "0.3.1",
     "description": "Javascript check library",
     "main": "dist/checkif.js",
     "scripts": {
