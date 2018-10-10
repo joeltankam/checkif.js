@@ -1,4 +1,4 @@
-import { isArray, isFunction, isObject } from './is';
+import { isArray, isFunction, isObject } from './is/types';
 
 /**
  * Returns whether all values in an array/object matches

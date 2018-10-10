@@ -1,5 +1,5 @@
-import is from '../src/is';
-import { testFalsyWithNullable } from './utils';
+import is from '../../src/is/types';
+import { testFalsyWithNullable } from '../utils';
 import { JSDOM } from 'jsdom';
 
 describe('isObject', () => {
