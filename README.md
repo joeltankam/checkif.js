@@ -192,6 +192,12 @@ _To be implemented_
 This group of methods allows to verify _if_ the current environment _is_ a specific environment.
 _To be implemented_
 
+##### `firefox()`
+Check _if_ the current browser _is_ Firefox.
+```js
+is.firefox(); // true or false
+```
+
 #### Time
 
 This group of methods allows to verify _if_ a date _is_ a specific kind.
