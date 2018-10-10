@@ -189,8 +189,13 @@ _To be implemented_
 
 #### Environment
 
-This group of methods allows to verify _if_ the current environment _is_ a specific environment.
-_To be implemented_
+##### `chrome()`
+
+Check _if_ the current browser _is_ Chrome.
+
+```js
+is.chrome(); // true or false
+```
 
 #### Time
 
