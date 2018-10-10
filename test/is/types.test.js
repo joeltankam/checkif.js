@@ -197,3 +197,15 @@ describe('isWindowObject', () => {
     });
     testFalsyWithNullable(is.windowObject);
 });
+
+describe('isEmail', () => {
+    test('returns true', () => {
+        expect(is.email('very.common@example.com')).toBeTruthy();
+        expect(is.email('other.email-with-hyphen@example.com')).toBeTruthy();
+        expect(is.email('user.name+tag+sorting@example.com')).toBeTruthy();
+    });
+    test('returns false', () => {
+        expect(is.email('john..doe@example.com')).toBeFalsy();
+    });
+    testFalsyWithNullable(is.email);
+});

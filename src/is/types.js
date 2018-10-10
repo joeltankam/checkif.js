@@ -125,6 +125,16 @@ export function isWindowObject(value) {
     return value != null && typeof value === 'object' && 'setInterval' in value;
 }
 
+/**
+ * Returns whether a given value is an email
+ * @param {*} value the value to check
+ */
+export function isEmail(value) {
+    /* eslint-disable-next-line no-useless-escape */
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(value).toLowerCase());
+}
+
 export default {
     object: isObject,
     array: isArray,
@@ -142,4 +152,5 @@ export default {
     regexp: isRegexp,
     undefined: isUndefined,
     windowObject: isWindowObject,
+    email: isEmail,
 };
