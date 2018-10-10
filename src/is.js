@@ -75,10 +75,10 @@ export function isFunction(value) {
 }
 
 /**
- * Returns whether given value is a pure JSON object
+ * Returns whether given value is a pure object
  * @param {*} value the value to check
  */
-export function isJsonObject(value) {
+export function isPureObject(value) {
     return toString.call(value) === '[object Object]';
 }
 
@@ -135,7 +135,7 @@ export default {
     domNode: isDomNode,
     error: isError,
     function: isFunction,
-    jsonObject: isJsonObject,
+    pureObject: isPureObject,
     nan: isNaN,
     null: isNull,
     number: isNumber,

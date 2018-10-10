@@ -119,14 +119,14 @@ is.object(String(1)); // true
 is.object('1'); // false
 ```
 
-##### `jsonObject(value)`
+##### `pureObject(value)`
 
 Check _if_ a given value _is_ a pure JSON object.
 
 ```js
-is.jsonObject({}); // true
-is.jsonObject({ value: 1 }); // true
-is.jsonObject(new Date()); // false
+is.pureObject({}); // true
+is.pureObject({ value: 1 }); // true
+is.pureObject(new Date()); // false
 ```
 
 ##### `function(value)`

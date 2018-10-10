@@ -120,16 +120,16 @@ describe('isFunction', () => {
     testFalsyWithNullable(is.function);
 });
 
-describe('isJsonObject', () => {
+describe('isPureObject', () => {
     test('returns true on json objects', () => {
-        expect(is.jsonObject({})).toBeTruthy();
-        expect(is.jsonObject({ value: 1 })).toBeTruthy();
+        expect(is.pureObject({})).toBeTruthy();
+        expect(is.pureObject({ value: 1 })).toBeTruthy();
     });
     test('returns false', () => {
-        expect(is.jsonObject(new Date())).toBeFalsy();
-        expect(is.jsonObject(new String)).toBeFalsy();
+        expect(is.pureObject(new Date())).toBeFalsy();
+        expect(is.pureObject(new String)).toBeFalsy();
     });
-    testFalsyWithNullable(is.jsonObject);
+    testFalsyWithNullable(is.pureObject);
 });
 
 describe('isNaN', () => {
