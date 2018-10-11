@@ -1,10 +1,10 @@
-const isFuture = date => {
+const isFuture = (date) => {
     const now = new Date();
 
     return now < date;
 };
 
-const isPast = date => {
+const isPast = (date) => {
     const now = new Date();
 
     return now > date;
@@ -12,5 +12,5 @@ const isPast = date => {
 
 export default {
     isFuture,
-    isPast
+    isPast,
 };
