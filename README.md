@@ -205,7 +205,24 @@ is.upperCase('abc'); // false
 #### Arithemetic
 
 This group of methods allows to verify _if_ a given number _is_ a from a specific class of numbers.
-_To be implemented_
+
+##### `even(value)`
+
+Check _if_ a given value _is_ even.
+
+```js
+is.even(10); // true
+is.even(11); // false
+```
+
+##### `odd(value)`
+
+Check _if_ a given value _is_ odd.
+
+```js
+is.odd(9); // true
+is.odd(10); // false
+```
 
 #### Environment
 
