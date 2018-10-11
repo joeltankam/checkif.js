@@ -184,6 +184,8 @@ _To be implemented_
 
 #### Arithemetic
 
+This group of methods allows to verify _if_ a given number _is_ a from a specific class of numbers.
+
 ##### `even(value)`
 
 Check _if_ a given value _is_ even.

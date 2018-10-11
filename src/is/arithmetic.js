@@ -1,11 +1,11 @@
-import types from './types';
+import { isNumber } from './types';
 
 /**
  * Returns whether a given value is even
  * @param {*} value the value to check
  */
 export function isEven(value) {
-    if (!types.number(value)) return false;
+    if (!isNumber(value)) return false;
     return value % 2 === 0;
 }
 
@@ -14,8 +14,8 @@ export function isEven(value) {
  * @param {*} value the value to check
  */
 export function isOdd(value) {
-    if (!types.number(value)) return false;
-    return !isEven(value);
+    if (!isNumber(value)) return false;
+    return value % 2 !== 0;
 }
 
 export default {
