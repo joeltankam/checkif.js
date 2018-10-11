@@ -182,6 +182,26 @@ _To be implemented_
 This group of methods allows to verify _if_ a given string _is_ a from a specific format.
 _To be implemented_
 
+##### `lowerCase(value)`
+
+Check _if_ a given value _is_ a lower case string.
+
+```js
+is.lowerCase('abc'); // true
+is.lowerCase('abc 123'); // true
+is.lowerCase('ABC'); // false
+```
+
+##### `upperCase(value)`
+
+Check _if_ a given value _is_ an upper case string.
+
+```js
+is.upperCase('ABC'); // true
+is.upperCase('ABC 123'); // true
+is.upperCase('abc'); // false
+```
+
 #### Arithemetic
 
 This group of methods allows to verify _if_ a given number _is_ a from a specific class of numbers.
