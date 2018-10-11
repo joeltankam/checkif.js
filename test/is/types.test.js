@@ -212,12 +212,12 @@ describe('isLowerCase', () => {
 
 describe('isUpperCase', () => {
     test('returns true', () => {
-        expect(is.lowerCase('ABC')).toBeTruthy();
-        expect(is.lowerCase('ABC 123')).toBeTruthy();
+        expect(is.upperCase('ABC')).toBeTruthy();
+        expect(is.upperCase('ABC 123')).toBeTruthy();
     });
     test('returns false', () => {
-        expect(is.lowerCase(1)).toBeFalsy();
-        expect(is.lowerCase('aBC')).toBeFalsy();
-        expect(is.lowerCase('abc')).toBeFalsy();
+        expect(is.upperCase(1)).toBeFalsy();
+        expect(is.upperCase('aBC')).toBeFalsy();
+        expect(is.upperCase('abc')).toBeFalsy();
     });
 });
