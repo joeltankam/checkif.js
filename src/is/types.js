@@ -125,6 +125,22 @@ export function isWindowObject(value) {
     return value != null && typeof value === 'object' && 'setInterval' in value;
 }
 
+/**
+ * Returns whether a given value is lower case
+ * @param {*} value the value to check
+ */
+export function isLowerCase(value) {
+    return value != null && typeof value === 'string' && value === value.toLowerCase();
+}
+
+/**
+ * Returns whether a given value is upper case
+ * @param {*} value the value to check
+ */
+export function isUpperCase(value) {
+    return value != null && typeof value === 'string' && value === value.toUpperCase();
+}
+
 export default {
     object: isObject,
     array: isArray,
@@ -142,4 +158,6 @@ export default {
     regexp: isRegexp,
     undefined: isUndefined,
     windowObject: isWindowObject,
+    lowerCase: isLowerCase,
+    upperCase: isUpperCase,
 };
