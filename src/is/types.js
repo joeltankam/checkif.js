@@ -125,6 +125,14 @@ export function isWindowObject(value) {
     return value != null && typeof value === 'object' && 'setInterval' in value;
 }
 
+/**
+ * Returns whether a given value is lowercase
+ * @param {*} value the value to check
+ */
+export function isLowercase(value) {
+    return value === value.toLowerCase();
+}
+
 export default {
     object: isObject,
     array: isArray,
@@ -142,4 +150,5 @@ export default {
     regexp: isRegexp,
     undefined: isUndefined,
     windowObject: isWindowObject,
+    lowercase: isLowercase,
 };
