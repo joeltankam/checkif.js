@@ -197,3 +197,13 @@ describe('isWindowObject', () => {
     });
     testFalsyWithNullable(is.windowObject);
 });
+
+describe('isLowercase', () => {
+    test('returns true', () => {
+        expect(is.lowercase('lowercase')).toBeTruthy();
+    });
+    test('returns false', () => {
+        expect(is.lowercase('camelCase')).toBeFalsy();
+        expect(is.lowercase('UPPERCASE')).toBeFalsy();
+    });
+});
