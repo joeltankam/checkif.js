@@ -1,4 +1,4 @@
-import { atLeast } from './count';
+import atLeast from './at_least';
 
 /**
  * Returns whether all values in an array/object matches
