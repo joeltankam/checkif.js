@@ -17,14 +17,23 @@ describe('isObject', () => {
 });
 
 describe('isArray', () => {
-    test('returns true on arrays', () => {
-        expect(is.array([])).toBeTruthy();
-        expect(is.array(new Array(0))).toBeTruthy();
+    function testIsArray() {
+        test('returns true on arrays', () => {
+            expect(is.array([])).toBeTruthy();
+            expect(is.array(new Array(0))).toBeTruthy();
+        });
+        test('returns false', () => {
+            expect(is.array(false)).toBeFalsy();
+            expect(is.array('')).toBeFalsy();
+            expect(is.array(1)).toBeFalsy();
+        });
+    }
+    describe('Array.isArray exists', () => {
+        testIsArray();
     });
-    test('returns false', () => {
-        expect(is.array(false)).toBeFalsy();
-        expect(is.array('')).toBeFalsy();
-        expect(is.array(1)).toBeFalsy();
+    describe('Array.isArray does not exist', () => {
+        Array.isArray = null;
+        testIsArray();
     });
     testFalsyWithNullable(is.array);
 });
