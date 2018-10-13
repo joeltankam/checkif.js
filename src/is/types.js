@@ -125,6 +125,13 @@ export function isWindowObject(value) {
     return value != null && typeof value === 'object' && 'setInterval' in value;
 }
 
+/**
+ * Returns whether the current browser is Chrome
+ */
+export function isChrome() {
+    return !!window.chrome && !!window.chrome.webstore;
+}
+
 export default {
     object: isObject,
     array: isArray,
@@ -142,4 +149,5 @@ export default {
     regexp: isRegexp,
     undefined: isUndefined,
     windowObject: isWindowObject,
+    chrome: isChrome,
 };
