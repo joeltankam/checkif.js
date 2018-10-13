@@ -87,5 +87,5 @@ describe('atMost', () => {
             expect(atMost([_function, _function], _function, 1, false)).toBeFalsy();
         });
     });
-    testFalsyWithNullable(atLeast);
+    testFalsyWithNullable(atMost);
 });
