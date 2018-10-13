@@ -2,45 +2,46 @@ import atLeast from '../src/at_least';
 import { testFalsyWithNullable } from './utils';
 
 describe('atLeast', () => {
-    describe('on array', () => {
-        test('returns true', () => {
+    describe('on arrays', () => {
+        test('with value matcher', () => {
             expect(atLeast([0, 0, 0, 0], 0, 2)).toBeTruthy();
             expect(atLeast([0, 0, 1, 1], 0, 2)).toBeTruthy();
-            expect(atLeast([true, true, true, false], x => x === true, 3)).toBeTruthy();
-        });
-        test('returns false', () => {
-            expect(atLeast([0, 0, 1, 1], 0, 3)).toBeFalsy();
-            expect(atLeast([true, true, true, false], x => x === true, 4)).toBeFalsy();
-        });
-        test('returns false when size exceeded', () => {
+            expect(atLeast([0, 1, 1, 1], 0, 2)).toBeFalsy();
+            expect(atLeast([1, 1, 1, 1], 0, 1)).toBeFalsy();
             expect(atLeast([0, 0, 0, 0], 0, 5)).toBeFalsy();
         });
-    });
-    describe('on object', () => {
-        test('returns true', () => {
-            expect(atLeast({ x: 1, y: 1 }, 1, 1)).toBeTruthy();
-            expect(atLeast({ x: 1, y: 0 }, 1, 1)).toBeTruthy();
-            let a = {};
-            expect(atLeast({ x: a, y: a }, x => x === a, 1)).toBeTruthy();
+        test('with function matcher', () => {
+            expect(atLeast([true, true, true, true], x => x, 2)).toBeTruthy();
+            expect(atLeast([true, true, false, false], x => x, 2)).toBeTruthy();
+            expect(atLeast([true, false, false, false], x => x, 2)).toBeFalsy();
+            expect(atLeast([false, false, false, false], x => x, 1)).toBeFalsy();
+            expect(atLeast([true, true, true, true], x => x, 5)).toBeFalsy();
         });
-        test('returns false', () => {
-            expect(atLeast({ x: 1, y: 0 }, 1, 2)).toBeFalsy();
-            let a = {};
-            expect(atLeast({ x: a, y: 0 }, x => x === a, 2)).toBeFalsy();
-        });
-    });
-    describe('strict mode', () => {
-        test('returns true', () => {
-            let _function = x => x % 2;
+        test('strict mode', () => {
+            let _function = () => false;
             expect(atLeast([_function, _function], _function, 2, true)).toBeTruthy();
-            _function = function () { };
-            expect(atLeast({ x: _function, y: {} }, _function, 1, true)).toBeTruthy();
+            expect(atLeast([_function, _function], _function, 2, false)).toBeFalsy();
         });
-        test('returns false', () => {
-            let _function = x => x % 2;
-            expect(atLeast({ x: _function, y: _function }, _function, 1)).toBeFalsy();
-            _function = function () { };
-            expect(atLeast([_function, _function], _function, 1, false)).toBeFalsy();
+    });
+    describe('on objects', () => {
+        test('with value matcher', () => {
+            expect(atLeast({ x: 0, y: 0, z: 0 }, 0, 2)).toBeTruthy();
+            expect(atLeast({ x: 0, y: 0, z: 1 }, 0, 2)).toBeTruthy();
+            expect(atLeast({ x: 0, y: 1, z: 1 }, 0, 2)).toBeFalsy();
+            expect(atLeast({ x: 1, y: 1, z: 1 }, 0, 1)).toBeFalsy();
+            expect(atLeast({ x: 0, y: 0, z: 0 }, 0, 4)).toBeFalsy();
+        });
+        test('with function matcher', () => {
+            expect(atLeast({ x: true, y: true, z: true }, x => x, 2)).toBeTruthy();
+            expect(atLeast({ x: true, y: true, z: false }, x => x, 2)).toBeTruthy();
+            expect(atLeast({ x: true, y: false, z: false }, x => x, 2)).toBeFalsy();
+            expect(atLeast({ x: false, y: false, z: false }, x => x, 1)).toBeFalsy();
+            expect(atLeast({ x: true, y: true, z: true }, x => x, 4)).toBeFalsy();
+        });
+        test('strict mode', () => {
+            let _function = () => false;
+            expect(atLeast({ x: _function, y: _function }, _function, 2, true)).toBeTruthy();
+            expect(atLeast({ x: _function, y: _function }, _function, 2, false)).toBeFalsy();
         });
     });
     testFalsyWithNullable(atLeast);
