@@ -299,6 +299,27 @@ atLeast([0,1,2,3], x => x === 5, 1); //false
 
 `atLeast()` also supports _strict mode_.
 
+### `atMost`
+
+```js
+import { atMost } from 'checkif.js';
+```
+
+This method verifies _if_ _at most_ a number of elements in a given enumerable (array or object) match a specific value or function.
+
+```js
+atMost([0, 0, 1, 2], 0, 2); // true
+atMost(atMost([true, true, true, false], x => x === true, 3)); // true
+atMost({ x: a, y: a }, x => x === a, 3); // true
+
+atMost([0, 0, 1, 1], 0, 1); // false
+atMost({ x: 1, y: 0 }, 1, 0); // false
+let _function = function () { return true };
+atMost({ x: _function, y: _function }, _function, 1); // false
+```
+
+`atMost()` also supports _strict mode_.
+
 ## Contributing
 
 Any help is wanted and welcome. You can check out our github [issues](https://github.com/joeltankam/checkif.js/issues) and [projects](https://github.com/joeltankam/checkif.js/projects) or our [slack](https://ifjs.slack.com) page.
