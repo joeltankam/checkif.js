@@ -214,7 +214,7 @@ _To be implemented_
 This group of methods allows to verify _if_ a date _is_ a specific kind.
 _To be implemented_
 
-### `all`
+### `all(enumerable, matcher, strict = false)`
 
 ```js
 import { all } from 'checkif.js';
@@ -243,7 +243,7 @@ all({ x: 0, y: new Number(0) }, function(x){ return x === 0; }); // false
 
 #### Strict mode
 
-The second parameter of `all()` is automatically resolved as a matcher function when it's a function. But you may want to check if the values are exactly equal to the function (as a value). In this case, you should use the _strict mode_ by setting the 3rd parameter to `true` (default `false`).
+The second parameter of `all` is automatically resolved as a matcher function when it's a function. But you may want to check if the values are exactly equal to the function (as a value). In this case, you should use the _strict mode_ by setting the 3rd parameter to `true` (default `false`).
 
 ```js
 import { all } from 'checkif.js';
@@ -259,10 +259,10 @@ import { all, is } from 'checkif.js';
 all({ x: ['a', 'b'], y: ['a', 'c'] }, x => all(x, is.char)); // true
 ```
 
-### `any`
+### `any(enumerable, matcher, strict = false)`
 
 ```js
-import { all } from 'checkif.js';
+import { any } from 'checkif.js';
 ```
 
 This method verifies _if_ _any_ element in a given enumerable (array or object) matches a specific value or function.
@@ -277,9 +277,9 @@ any({ x : 1, y : 1}, 2); // false
 any([0,1,2,3], x => x === 5); //false
 ```
 
-`any()` also supports _strict mode_.
+`any` also supports _strict mode_.
 
-### `atLeast`
+### `atLeast(enumerable, matcher, count = 1, strict = false)`
 
 ```js
 import { atLeast } from 'checkif.js';
@@ -297,9 +297,9 @@ atLeast({ x : 1, y : 1}, 2, 3); // false
 atLeast([0,1,2,3], x => x === 5, 1); //false
 ```
 
-`atLeast()` also supports _strict mode_.
+`atLeast` also supports _strict mode_.
 
-### `atMost`
+### `atMost(enumerable, matcher, count = 1, strict = false)`
 
 ```js
 import { atMost } from 'checkif.js';
@@ -309,7 +309,7 @@ This method verifies _if_ _at most_ a number of elements in a given enumerable (
 
 ```js
 atMost([0, 0, 1, 2], 0, 2); // true
-atMost(atMost([true, true, true, false], x => x === true, 3)); // true
+atMost([true, true, true, false], x => x === true, 3); // true
 atMost({ x: a, y: a }, x => x === a, 3); // true
 
 atMost([0, 0, 1, 1], 0, 1); // false
@@ -318,7 +318,7 @@ let _function = function () { return true };
 atMost({ x: _function, y: _function }, _function, 1); // false
 ```
 
-`atMost()` also supports _strict mode_.
+`atMost` also supports _strict mode_.
 
 ## Contributing
 
