@@ -265,38 +265,39 @@ all({ x: ['a', 'b'], y: ['a', 'c'] }, x => all(x, is.char)); // true
 import { all } from 'checkif.js';
 ```
 
-This method verifies _if_ _any_ element in a given enumerable (array or object) match a specific value or function.
-
-#### `any` on arrays
+This method verifies _if_ _any_ element in a given enumerable (array or object) matches a specific value or function.
 
 ```js
 any([0,1,2,3], 2); // true
 any([0,1,2,3], x => x === 0); // true
+any({ x : 1, y : 0}, x => x === 1); // true
 
-all([0, 1, 2, 3], 1); // false
+any([0, 1, 2, 3], 1); // false
+any({ x : 1, y : 1}, 2); // false
 any([0,1,2,3], x => x === 5); //false
 ```
 
-#### `any` on objects
+`any()` also supports _strict mode_.
+
+### `atLeast`
 
 ```js
-any({ x : 1, y : 1}, 1); // true
-any({ x : 1, y : 1}, x => x === 1); // true
-
-any({ x : 1, y : 1}, 2); // false
-any({ x : 1, y : 1}, x => x === 2); // false
+import { atLeast } from 'checkif.js';
 ```
 
-#### Strict mode
-
-The second parameter of `any()` is automatically resolved as a matcher function when it's a function. But you may want to check if the values are exactly equal to the function (as a value). In this case, you should use the _strict mode_ by setting the 3rd parameter to `true` (default `false`).
+This method verifies _if_ _at least_ a number of elements in a given enumerable (array or object) match a specific value or function.
 
 ```js
-import { any } from 'checkif.js';
+atLeast([1,1,2,3], 1, 2); // true
+atLeast([0,0,2,0], x => x === 0, 3); // true
+atLeast({ x : 1, y : 0}, x => x === 1, 1); // true
 
-let _function = function (x) { ... };
-any({ x: 0, y: _function }, _function, true); // true
+atLeast([0, 1, 2, 3], 1, 2); // false
+atLeast({ x : 1, y : 1}, 2, 3); // false
+atLeast([0,1,2,3], x => x === 5, 1); //false
 ```
+
+`atLeast()` also supports _strict mode_.
 
 ## Contributing
 
