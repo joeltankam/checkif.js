@@ -28,15 +28,17 @@ This group of methods allows to verify _if_ a given value _is_ from a specific t
 
 ##### `null(value)`
 
-Check _if_ a given value _is_ `null`.
+Checks _if_ a given value _is_ `null`.
 
 ##### `undefined(value)`
 
-Check _if_ a given value _is_ `undefined`.
+Alias `und(value)`
+
+Checks _if_ a given value _is_ `undefined`.
 
 ##### `nan(value)`
 
-Check _if_ a given value _is_ `NaN`. Same as `Number.isNaN`.
+Checks _if_ a given value _is_ `NaN`. Same as `Number.isNaN`.
 
 ```js
 is.nan(NaN); // true
@@ -45,7 +47,9 @@ is.nan(Number.NaN); // true
 
 ##### `array(value)`
 
-Check _if_ a given value is an array. This method is the same as `Array.isArray`, if available.
+Alias `arr(value)`
+
+Checks _if_ a given value is an array. This method is the same as `Array.isArray`, if available.
 
 ```js
 is.array([]); // true
@@ -54,7 +58,9 @@ is.array(new Array(0)); // true
 
 ##### `boolean(value)`
 
-Check _if_ a given value _is_ a boolean.
+Alias `bool(value)`
+
+Checks _if_ a given value _is_ a boolean.
 
 ```js
 is.boolean(true); // true
@@ -63,7 +69,9 @@ is.boolean(new Boolean(0)); // true
 
 ##### `string(value)`
 
-Check _if_ a given value _is_ a string.
+Alias `str(value)`
+
+Checks _if_ a given value _is_ a string.
 
 ```js
 is.string(''); // true
@@ -73,7 +81,7 @@ is.string(new String('')); // true
 
 ##### `char(value)`
 
-Check _if_ a given value _is_ a char.
+Checks _if_ a given value _is_ a char.
 
 ```js
 is.char(' '); // true
@@ -83,7 +91,7 @@ is.char(1); // false
 
 ##### `date(value)`
 
-Check _if_ a given value _is_ a date.
+Checks _if_ a given value _is_ a date.
 
 ```js
 is.date(new Date('November 23, 1998 03:24:00')); // true, my birthdate btw ;)
@@ -91,17 +99,21 @@ is.date(new Date('November 23, 1998 03:24:00')); // true, my birthdate btw ;)
 
 ##### `number(value)`
 
-Check _if_ a given value _is_ a number.
+Alias `num(value)`
+
+Checks _if_ a given value _is_ a number.
 
 ```js
 is.number(Number(1)); // true
 is.number(new Number(1)); // true
-is.number(1); // false
+is.number(1); // true
 ```
 
 ##### `regexp(value)`
 
-Check _if_ a given value _is_ a regular expression.
+Alias `reg(value)`
+
+Checks _if_ a given value _is_ a regular expression.
 
 ```js
 is.regexp(\a\); // true
@@ -111,7 +123,9 @@ is.regexp(new RegExp()); // true
 
 ##### `object(value)`
 
-Check _if_ a given value _is_ an object.
+Alias `obj(value)`
+
+Checks _if_ a given value _is_ an object.
 
 ```js
 is.object({}); // true
@@ -121,7 +135,9 @@ is.object('1'); // false
 
 ##### `pureObject(value)`
 
-Check _if_ a given value _is_ a pure JSON object.
+Alias `pure(value)`
+
+Checks _if_ a given value _is_ a pure JSON object.
 
 ```js
 is.pureObject({}); // true
@@ -131,7 +147,9 @@ is.pureObject(new Date()); // false
 
 ##### `function(value)`
 
-Check _if_ a given value _is_ a function.
+Alias `func(value)`
+
+Checks _if_ a given value _is_ a function.
 
 ```js
 is.function(function () { }); // true
@@ -141,7 +159,9 @@ is.function(new Function('x', 'return x')); // true
 
 ##### `error(value)`
 
-Check _if_ a given value _is_ an error.
+Alias `err(value)`
+
+Checks _if_ a given value _is_ an error.
 
 ```js
 is.error(Error('Fatal error')); // true
@@ -150,7 +170,9 @@ is.error(new Error('Nothing works anymore')); // true
 
 ##### `domNode(value)`
 
-Check _if_ a given value _is_ a DOM node.
+Alias `dom(value)`
+
+Checks _if_ a given value _is_ a DOM node.
 
 ```js
 // Browser
@@ -162,7 +184,9 @@ is.domNode(dom.window.document.body); // true
 
 ##### `windowObject(value)`
 
-Check _if_ a given value _is_ a window object.
+Alias `window(value)`
+
+Checks _if_ a given value _is_ a window object.
 
 ```js
 // Browser
@@ -175,11 +199,13 @@ is.windowObject(dom.window); // true
 #### RegExp
 
 This group of methods allows to verify _if_ a given string _is_ from a specific known type of value.
+
 _To be implemented_
 
 #### String
 
 This group of methods allows to verify _if_ a given string _is_ a from a specific format.
+
 _To be implemented_
 
 #### Arithemetic
@@ -188,7 +214,11 @@ This group of methods allows to verify _if_ a given number _is_ a from a specifi
 
 ##### `even(value)`
 
+<<<<<<< HEAD
 Check _if_ a given value _is_ even.
+=======
+Checks _if_ a given value _is_ even.
+>>>>>>> 4b955c9ad1f8460321bbcb8246b365dac08575ed
 
 ```js
 is.even(10); // true
@@ -197,7 +227,11 @@ is.even(11); // false
 
 ##### `odd(value)`
 
+<<<<<<< HEAD
 Check _if_ a given value _is_ odd.
+=======
+Checks _if_ a given value _is_ odd.
+>>>>>>> 4b955c9ad1f8460321bbcb8246b365dac08575ed
 
 ```js
 is.odd(9); // true
@@ -207,14 +241,16 @@ is.odd(10); // false
 #### Environment
 
 This group of methods allows to verify _if_ the current environment _is_ a specific environment.
+
 _To be implemented_
 
 #### Time
 
 This group of methods allows to verify _if_ a date _is_ a specific kind.
+
 _To be implemented_
 
-### `all`
+### `all(enumerable, matcher, strict = false)`
 
 ```js
 import { all } from 'checkif.js';
@@ -243,7 +279,7 @@ all({ x: 0, y: new Number(0) }, function(x){ return x === 0; }); // false
 
 #### Strict mode
 
-The second parameter of `all()` is automatically resolved as a matcher function when it's a function. But you may want to check if the values are exactly equal to the function (as a value). In this case, you should use the _strict mode_ by setting the 3rd parameter to `true` (default `false`).
+The second parameter of `all` is automatically resolved as a matcher function when it's a function. But you may want to check if the values are exactly equal to the function (as a value). In this case, you should use the _strict mode_ by setting the 3rd parameter to `true` (default `false`).
 
 ```js
 import { all } from 'checkif.js';
@@ -259,44 +295,64 @@ import { all, is } from 'checkif.js';
 all({ x: ['a', 'b'], y: ['a', 'c'] }, x => all(x, is.char)); // true
 ```
 
-### `any`
+### `any(enumerable, matcher, strict = false)`
 
-```js
-import { all } from 'checkif.js';
-```
-
-This method verifies _if_ _any_ element in a given enumerable (array or object) match a specific value or function.
-
-#### `any` on arrays
-
-```js
-any([0,1,2,3], 2); // true
-any([0,1,2,3], x => x === 0); // true
-
-all([0, 1, 2, 3], 1); // false
-any([0,1,2,3], x => x === 5); //false
-```
-
-#### `any` on objects
-
-```js
-any({ x : 1, y : 1}, 1); // true
-any({ x : 1, y : 1}, x => x === 1); // true
-
-any({ x : 1, y : 1}, 2); // false
-any({ x : 1, y : 1}, x => x === 2); // false
-```
-
-#### Strict mode
-
-The second parameter of `any()` is automatically resolved as a matcher function when it's a function. But you may want to check if the values are exactly equal to the function (as a value). In this case, you should use the _strict mode_ by setting the 3rd parameter to `true` (default `false`).
+This method verifies _if_ _any_ element in a given enumerable (array or object) matches a specific value or function.
 
 ```js
 import { any } from 'checkif.js';
 
-let _function = function (x) { ... };
-any({ x: 0, y: _function }, _function, true); // true
+any([0,1,2,3], 2); // true
+any([0,1,2,3], x => x === 0); // true
+any({ x : 1, y : 0}, x => x === 1); // true
+
+any([0, 1, 2, 3], 1); // false
+any({ x : 1, y : 1}, 2); // false
+any([0,1,2,3], x => x === 5); //false
 ```
+
+`any` also supports _strict mode_.
+
+### `atLeast(enumerable, count, matcher, strict = false)`
+
+Alias `atl(enumerable, count, matcher, strict = false)`
+
+This method verifies _if_ _at least_ a number of elements in a given enumerable (array or object) match a specific value or function.
+
+```js
+import { atLeast } from 'checkif.js';
+
+atLeast([1,1,2,3], 2, 1); // true
+atLeast([0,0,2,0], 3, x => x === 0); // true
+atLeast({ x : 1, y : 0}, 1, x => x === 1); // true
+
+atLeast([0, 1, 2, 3], 2, 1); // false
+atLeast({ x : 1, y : 1}, 3, 2); // false
+atLeast([0,1,2,3], 1, x => x === 5); //false
+```
+
+`atLeast` also supports _strict mode_.
+
+### `atMost(enumerable, count, matcher, strict = false)`
+
+Alias `atm(enumerable, count, matcher, strict = false)`
+
+This method verifies _if_ _at most_ a number of elements in a given enumerable (array or object) match a specific value or function.
+
+```js
+import { atMost } from 'checkif.js';
+
+atMost([0, 0, 1, 2], 2, 0); // true
+atMost([true, true, true, false], 3, x => x === true); // true
+atMost({ x: a, y: a }, 3, x => x === a); // true
+
+atMost([0, 0, 1, 1], 1, 0); // false
+atMost({ x: 1, y: 0 }, 0, 1); // false
+let _function = function () { return true };
+atMost({ x: _function, y: _function }, 1, _function); // false
+```
+
+`atMost` also supports _strict mode_.
 
 ## Contributing
 

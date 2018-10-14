@@ -8,5 +8,10 @@ export default {
         file: './dist/checkif.js',
         format: 'umd',
     },
-    plugins: [buble(), progress()],
+    plugins: [
+        buble({
+            objectAssign: 'Object.assign',
+        }),
+        progress(),
+    ],
 };
