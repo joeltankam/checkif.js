@@ -24,3 +24,32 @@ describe('isOdd', () => {
     });
     testFalsyWithNullable(is.odd);
 });
+
+describe('isInteger', () => {
+    function testIsInteger() {
+        test('returns true on integers', () => {
+            expect(is.integer(12)).toBeTruthy();
+            expect(is.integer(10.0)).toBeTruthy();
+        });
+        test('returns false on others', () => {
+            expect(is.integer(3.14)).toBeFalsy();
+            expect(is.integer(Number.MIN_VALUE)).toBeFalsy();
+            expect(is.integer(Infinity)).toBeFalsy();
+            expect(is.integer('6')).toBeFalsy();
+        });
+        testFalsyWithNullable(is.integer);
+    }
+    describe('Number.isInteger exists', () => {
+        testIsInteger();
+    });
+    describe('Number.isInteger does not exist', () => {
+        Number.isNaN = null;
+        testIsInteger();
+    })
+});
+
+describe('aliases', () => {
+    test('int', () => {
+        expect(is.int).toEqual(is.integer);
+    });
+});

@@ -250,6 +250,21 @@ is.odd(9); // true
 is.odd(10); // false
 ```
 
+##### `integer(value)`
+
+Alias `int(value)`
+
+Checks _if_ a given value _is_ an integer.
+
+```js
+is.integer(12); // true
+is.integer(10.0); // true
+is.integer(3.14); // false
+is.integer(Number.MIN_VALUE); // false
+is.integer(Infinity); // false
+is.integer('6');// false
+```
+
 #### Environment
 
 This group of methods allows to verify _if_ the current environment _is_ a specific environment.
