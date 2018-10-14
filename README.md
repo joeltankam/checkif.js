@@ -96,7 +96,7 @@ Check _if_ a given value _is_ a number.
 ```js
 is.number(Number(1)); // true
 is.number(new Number(1)); // true
-is.number(1); // false
+is.number(1); // true
 ```
 
 ##### `regexp(value)`

@@ -1,12 +1,23 @@
 const { toString } = Object.prototype;
 
 /**
- * Returns whether a given value is an Object
+ * Returns whether a given value is null
  * @param {*} value the value to check
  */
-export function isObject(value) {
-    return Object(value) === value;
+export function isNull(value) {
+    return value === null;
 }
+
+/**
+ * Returns whether a given value is undefined
+ * @param {*} value the value to check
+ */
+export function isUndefined(value) {
+    return value === undefined;
+}
+
+// Returns whether a given value is NaN
+export const { isNaN } = Number;
 
 /**
  * Returns whether a given value is an Array
@@ -50,50 +61,6 @@ export function isDate(value) {
 }
 
 /**
- * Returns whether a given object is a DOM node
- * @param {*} object the object to check
- */
-export function isDomNode(object) {
-    return isObject(object) && object.nodeType > 0;
-}
-
-/**
- * Returns whether a given value is an Error
- * @param {*} value the value to check
- */
-export function isError(value) {
-    return toString.call(value) === '[object Error]';
-}
-
-/**
- * Returns whether a given value is a Function
- * @param {*} value the value to check
- */
-export function isFunction(value) {
-    // fallback check is for IE
-    return typeof value === 'function' || toString.call(value) === '[object Function]';
-}
-
-/**
- * Returns whether given value is a pure object
- * @param {*} value the value to check
- */
-export function isPureObject(value) {
-    return toString.call(value) === '[object Object]';
-}
-
-// Returns whether a given value is NaN
-export const { isNaN } = Number;
-
-/**
- * Returns whether a given value is null
- * @param {*} value the value to check
- */
-export function isNull(value) {
-    return value === null;
-}
-
-/**
  * Returns whether a given value is a Number
  * @param {*} value the value to check
  */
@@ -110,11 +77,44 @@ export function isRegexp(value) {
 }
 
 /**
- * Returns whether a given value is undefined
+ * Returns whether a given value is an Object
  * @param {*} value the value to check
  */
-export function isUndefined(value) {
-    return value === undefined;
+export function isObject(value) {
+    return Object(value) === value;
+}
+
+/**
+ * Returns whether given value is a pure object
+ * @param {*} value the value to check
+ */
+export function isPureObject(value) {
+    return toString.call(value) === '[object Object]';
+}
+
+/**
+ * Returns whether a given value is a Function
+ * @param {*} value the value to check
+ */
+export function isFunction(value) {
+    // fallback check is for IE
+    return typeof value === 'function' || toString.call(value) === '[object Function]';
+}
+
+/**
+ * Returns whether a given value is an Error
+ * @param {*} value the value to check
+ */
+export function isError(value) {
+    return toString.call(value) === '[object Error]';
+}
+
+/**
+ * Returns whether a given object is a DOM node
+ * @param {*} object the object to check
+ */
+export function isDomNode(object) {
+    return isObject(object) && object.nodeType > 0;
 }
 
 /**
@@ -126,20 +126,20 @@ export function isWindowObject(value) {
 }
 
 export default {
-    object: isObject,
+    null: isNull,
+    undefined: isUndefined,
+    nan: isNaN,
     array: isArray,
     boolean: isBoolean,
     string: isString,
     char: isChar,
     date: isDate,
-    domNode: isDomNode,
-    error: isError,
-    function: isFunction,
-    pureObject: isPureObject,
-    nan: isNaN,
-    null: isNull,
     number: isNumber,
     regexp: isRegexp,
-    undefined: isUndefined,
+    object: isObject,
+    pureObject: isPureObject,
+    function: isFunction,
+    error: isError,
+    domNode: isDomNode,
     windowObject: isWindowObject,
 };
