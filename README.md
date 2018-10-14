@@ -28,17 +28,17 @@ This group of methods allows to verify _if_ a given value _is_ from a specific t
 
 ##### `null(value)`
 
-Check _if_ a given value _is_ `null`.
+Checks _if_ a given value _is_ `null`.
 
 ##### `undefined(value)`
 
 Alias `und(value)`
 
-Check _if_ a given value _is_ `undefined`.
+Checks _if_ a given value _is_ `undefined`.
 
 ##### `nan(value)`
 
-Check _if_ a given value _is_ `NaN`. Same as `Number.isNaN`.
+Checks _if_ a given value _is_ `NaN`. Same as `Number.isNaN`.
 
 ```js
 is.nan(NaN); // true
@@ -49,7 +49,7 @@ is.nan(Number.NaN); // true
 
 Alias `arr(value)`
 
-Check _if_ a given value is an array. This method is the same as `Array.isArray`, if available.
+Checks _if_ a given value is an array. This method is the same as `Array.isArray`, if available.
 
 ```js
 is.array([]); // true
@@ -60,7 +60,7 @@ is.array(new Array(0)); // true
 
 Alias `bool(value)`
 
-Check _if_ a given value _is_ a boolean.
+Checks _if_ a given value _is_ a boolean.
 
 ```js
 is.boolean(true); // true
@@ -71,7 +71,7 @@ is.boolean(new Boolean(0)); // true
 
 Alias `str(value)`
 
-Check _if_ a given value _is_ a string.
+Checks _if_ a given value _is_ a string.
 
 ```js
 is.string(''); // true
@@ -81,7 +81,7 @@ is.string(new String('')); // true
 
 ##### `char(value)`
 
-Check _if_ a given value _is_ a char.
+Checks _if_ a given value _is_ a char.
 
 ```js
 is.char(' '); // true
@@ -91,7 +91,7 @@ is.char(1); // false
 
 ##### `date(value)`
 
-Check _if_ a given value _is_ a date.
+Checks _if_ a given value _is_ a date.
 
 ```js
 is.date(new Date('November 23, 1998 03:24:00')); // true, my birthdate btw ;)
@@ -101,7 +101,7 @@ is.date(new Date('November 23, 1998 03:24:00')); // true, my birthdate btw ;)
 
 Alias `num(value)`
 
-Check _if_ a given value _is_ a number.
+Checks _if_ a given value _is_ a number.
 
 ```js
 is.number(Number(1)); // true
@@ -113,7 +113,7 @@ is.number(1); // true
 
 Alias `reg(value)`
 
-Check _if_ a given value _is_ a regular expression.
+Checks _if_ a given value _is_ a regular expression.
 
 ```js
 is.regexp(\a\); // true
@@ -125,7 +125,7 @@ is.regexp(new RegExp()); // true
 
 Alias `obj(value)`
 
-Check _if_ a given value _is_ an object.
+Checks _if_ a given value _is_ an object.
 
 ```js
 is.object({}); // true
@@ -137,7 +137,7 @@ is.object('1'); // false
 
 Alias `pure(value)`
 
-Check _if_ a given value _is_ a pure JSON object.
+Checks _if_ a given value _is_ a pure JSON object.
 
 ```js
 is.pureObject({}); // true
@@ -149,7 +149,7 @@ is.pureObject(new Date()); // false
 
 Alias `func(value)`
 
-Check _if_ a given value _is_ a function.
+Checks _if_ a given value _is_ a function.
 
 ```js
 is.function(function () { }); // true
@@ -161,7 +161,7 @@ is.function(new Function('x', 'return x')); // true
 
 Alias `err(value)`
 
-Check _if_ a given value _is_ an error.
+Checks _if_ a given value _is_ an error.
 
 ```js
 is.error(Error('Fatal error')); // true
@@ -172,7 +172,7 @@ is.error(new Error('Nothing works anymore')); // true
 
 Alias `dom(value)`
 
-Check _if_ a given value _is_ a DOM node.
+Checks _if_ a given value _is_ a DOM node.
 
 ```js
 // Browser
@@ -186,7 +186,7 @@ is.domNode(dom.window.document.body); // true
 
 Alias `window(value)`
 
-Check _if_ a given value _is_ a window object.
+Checks _if_ a given value _is_ a window object.
 
 ```js
 // Browser
@@ -214,7 +214,7 @@ This group of methods allows to verify _if_ a given number _is_ a from a specifi
 
 ##### `even(value)`
 
-Check _if_ a given value _is_ even.
+Checks _if_ a given value _is_ even.
 
 ```js
 is.even(10); // true
@@ -223,7 +223,7 @@ is.even(11); // false
 
 ##### `odd(value)`
 
-Check _if_ a given value _is_ odd.
+Checks _if_ a given value _is_ odd.
 
 ```js
 is.odd(9); // true

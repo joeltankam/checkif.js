@@ -1,11 +1,13 @@
 import { isArray, isFunction, isObject } from './is/types';
 
 /**
- * Returns whether values in an array/object match at most a number of time
+ * Determines whether values in an array/object match at most a number of time
  * @param {*} enumerable the array or object to check
  * @param {Number} count the number of time
  * @param {*} matcher the value or function to match
  * @param {Boolean} strict determines if all elements should strictly match the matcher value
+ * @returns {Boolean} `true` if at most a given number of elements in the enumerable
+ * match the matcher; otherwise, `false`
  */
 export default function atMost(enumerable, count, matcher, strict = false) {
     let matcherFunction = matcher;
