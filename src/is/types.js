@@ -18,6 +18,15 @@ export function isUndefined(value) {
     return value === undefined;
 }
 
+/**
+ * Determines whether a given value is nullable
+ * @param {*} value the value to check
+ * @returns {Boolean} `true` if the value is nullable; otherwise, `false`
+ */
+export function isNullable(value) {
+    return isUndefined(value) || isNull(value);
+}
+
 // Determines whether a given value is NaN
 export const { isNaN } = Number;
 
@@ -144,6 +153,7 @@ export default {
     null: isNull,
     undefined: isUndefined,
     und: isUndefined,
+    nullable: isNullable,
     nan: isNaN,
     array: isArray,
     arr: isArray,
