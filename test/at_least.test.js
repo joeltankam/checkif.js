@@ -1,4 +1,5 @@
-import atLeast from '../src/at_least';
+import { atLeast } from '../index';
+import { atl } from '../index';
 import { testFalsyWithNullable } from './utils';
 
 describe('atLeast', () => {
@@ -42,6 +43,11 @@ describe('atLeast', () => {
             let _function = () => false;
             expect(atLeast({ x: _function, y: _function }, _function, 2, true)).toBeTruthy();
             expect(atLeast({ x: _function, y: _function }, _function, 2, false)).toBeFalsy();
+        });
+    });
+    describe('aliases', ()=>{
+        test('atl', () => {
+            expect(atl).toEqual(atLeast);
         });
     });
     testFalsyWithNullable(atLeast);

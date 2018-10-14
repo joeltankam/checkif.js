@@ -1,4 +1,5 @@
-import atMost from '../src/at_most';
+import { atl, atLeast, atMost } from '../index';
+import { atm } from '../index';
 import { testFalsyWithNullable } from './utils';
 
 describe('atMost', () => {
@@ -41,6 +42,11 @@ describe('atMost', () => {
             let _function = () => true;
             expect(atMost({ x: _function, y: _function, z: {} }, _function, 2, true)).toBeTruthy();
             expect(atMost({ x: _function, y: _function, z: {} }, _function, 2, false)).toBeFalsy();
+        });
+    });
+    describe('aliases', ()=>{
+        test('atm', () => {
+            expect(atm).toEqual(atMost);
         });
     });
     testFalsyWithNullable(atMost);

@@ -206,3 +206,34 @@ describe('isWindowObject', () => {
     });
     testFalsyWithNullable(is.windowObject);
 });
+
+describe('aliases', () => {
+    test('und', () => {
+        expect(is.arr).toEqual(is.array);
+    });
+    test('bool', () => {
+        expect(is.bool).toEqual(is.boolean);
+    });
+    test('num', () => {
+        expect(is.num).toEqual(is.number);
+    });
+    test('reg', () => {
+        expect(is.reg).toEqual(is.regexp);
+    });
+    test('obj', () => {
+        expect(is.obj).toEqual(is.object);
+    });
+    test('pure', () => {
+        expect(is.pure).toEqual(is.pureObject);
+    });
+    test('func', () => {
+        expect(is.func).toEqual(is.function);
+    });
+    test('err', () => {
+        expect(is.err).toEqual(is.error);
+    });
+    test('dom', () => {
+        expect(is.dom).toEqual(is.domNode);
+    });
+});
+
