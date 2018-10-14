@@ -292,9 +292,14 @@ Checks _if_ a given value _is_ a Date object in the past.
 
 ```js
 is.past(new Date(0)); // true
-is.past(new Date('April 30, 1993 16:40:00')); // true
-is.past(new Date('November 23, 3998 03:24:00')); // false
-is.past(new Date()); // false
+
+let pastDate = new Date();
+pastDate.setUTCFullYear(pastDate.getUTCFullYear() - 1);
+is.past(pastDate); // true
+
+let futureDate = new Date();
+futureDate.setUTCFullYear(futureDate.getUTCFullYear() + 1);
+is.past(futureDate); // false
 ```
 
 ##### `future(value)`
@@ -302,10 +307,15 @@ is.past(new Date()); // false
 Checks _if_ a given value _is_ a Date object in the future.
 
 ```js
-is.future(new Date('November 23, 3998 03:24:00')); // true
+let futureDate = new Date();
+futureDate.setUTCFullYear(futureDate.getUTCFullYear() + 1);
+is.future(futureDate); // true
+
 is.future(new Date(0)); // false
-is.future(new Date('April 30, 1993 16:40:00')); // false
-is.future(new Date()); // false
+
+let pastDate = new Date();
+pastDate.setUTCFullYear(pastDate.getUTCFullYear() - 1);
+is.past(pastDate); // false
 ```
 
 ##### `today(value)`
@@ -314,14 +324,20 @@ Checks _if_ a given value _is_ a Date object set today.
 
 ```js
 let date = new Date();
-date.setHours(12);
-date.setMinutes(30);
+date.setUTCHours(12);
+date.setUTCMinutes(30);
 
 is.today(date); // true
 is.today(new Date()); // true
 is.today(new Date(0)); // false
-is.today(new Date('April 30, 1993 16:40:00')); // false
-is.today('November 23, 3998 03:24:00'); // false
+
+let pastDate = new Date();
+pastDate.setUTCFullYear(pastDate.getUTCFullYear() - 1);
+is.today(pastDate); // false
+
+let futureDate = new Date();
+futureDate.setUTCFullYear(futureDate.getUTCFullYear() + 1);
+is.today(futureDate); // false
 ```
 
 ### `all(enumerable, matcher, strict = false)`
