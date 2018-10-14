@@ -3,11 +3,11 @@ import { isArray, isFunction, isObject } from './is/types';
 /**
  * Returns whether values in an array/object match at most a number of time
  * @param {*} enumerable the array or object to check
- * @param {*} matcher the value or function to match
  * @param {Number} count the number of time
+ * @param {*} matcher the value or function to match
  * @param {Boolean} strict determines if all elements should strictly match the matcher value
  */
-export default function atMost(enumerable, matcher, count = 1, strict = false) {
+export default function atMost(enumerable, count, matcher, strict = false) {
     let matcherFunction = matcher;
     if (strict === true || !isFunction(matcher)) matcherFunction = x => x === matcher;
     if (isArray(enumerable)) {
@@ -22,7 +22,7 @@ export default function atMost(enumerable, matcher, count = 1, strict = false) {
         return true;
     }
     if (isObject(enumerable)) {
-        return atMost(Object.values(enumerable), matcherFunction, count);
+        return atMost(Object.values(enumerable), count, matcherFunction);
     }
 
     return false;

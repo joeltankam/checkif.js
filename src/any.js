@@ -7,5 +7,5 @@ import atLeast from './at_least';
  * @param {Boolean} strict determines if all elements should strictly match the matcher value
  */
 export default function any(enumerable, matcher, strict = false) {
-    return atLeast(enumerable, matcher, 1, strict);
+    return atLeast(enumerable, 1, matcher, strict);
 }

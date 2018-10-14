@@ -305,43 +305,43 @@ any([0,1,2,3], x => x === 5); //false
 
 `any` also supports _strict mode_.
 
-### `atLeast(enumerable, matcher, count = 1, strict = false)`
+### `atLeast(enumerable, count, matcher, strict = false)`
 
-Alias `atl(enumerable, matcher, count = 1, strict = false)`
+Alias `atl(enumerable, count, matcher, strict = false)`
 
 This method verifies _if_ _at least_ a number of elements in a given enumerable (array or object) match a specific value or function.
 
 ```js
 import { atLeast } from 'checkif.js';
 
-atLeast([1,1,2,3], 1, 2); // true
-atLeast([0,0,2,0], x => x === 0, 3); // true
-atLeast({ x : 1, y : 0}, x => x === 1, 1); // true
+atLeast([1,1,2,3], 2, 1); // true
+atLeast([0,0,2,0], 3, x => x === 0); // true
+atLeast({ x : 1, y : 0}, 1, x => x === 1); // true
 
-atLeast([0, 1, 2, 3], 1, 2); // false
-atLeast({ x : 1, y : 1}, 2, 3); // false
-atLeast([0,1,2,3], x => x === 5, 1); //false
+atLeast([0, 1, 2, 3], 2, 1); // false
+atLeast({ x : 1, y : 1}, 3, 2); // false
+atLeast([0,1,2,3], 1, x => x === 5); //false
 ```
 
 `atLeast` also supports _strict mode_.
 
-### `atMost(enumerable, matcher, count = 1, strict = false)`
+### `atMost(enumerable, count, matcher, strict = false)`
 
-Alias `atm(enumerable, matcher, count = 1, strict = false)`
+Alias `atm(enumerable, count, matcher, strict = false)`
 
 This method verifies _if_ _at most_ a number of elements in a given enumerable (array or object) match a specific value or function.
 
 ```js
 import { atMost } from 'checkif.js';
 
-atMost([0, 0, 1, 2], 0, 2); // true
-atMost([true, true, true, false], x => x === true, 3); // true
-atMost({ x: a, y: a }, x => x === a, 3); // true
+atMost([0, 0, 1, 2], 2, 0); // true
+atMost([true, true, true, false], 3, x => x === true); // true
+atMost({ x: a, y: a }, 3, x => x === a); // true
 
-atMost([0, 0, 1, 1], 0, 1); // false
-atMost({ x: 1, y: 0 }, 1, 0); // false
+atMost([0, 0, 1, 1], 1, 0); // false
+atMost({ x: 1, y: 0 }, 0, 1); // false
 let _function = function () { return true };
-atMost({ x: _function, y: _function }, _function, 1); // false
+atMost({ x: _function, y: _function }, 1, _function); // false
 ```
 
 `atMost` also supports _strict mode_.
