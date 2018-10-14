@@ -214,11 +214,7 @@ This group of methods allows to verify _if_ a given number _is_ a from a specifi
 
 ##### `even(value)`
 
-<<<<<<< HEAD
-Check _if_ a given value _is_ even.
-=======
 Checks _if_ a given value _is_ even.
->>>>>>> 4b955c9ad1f8460321bbcb8246b365dac08575ed
 
 ```js
 is.even(10); // true
@@ -227,11 +223,7 @@ is.even(11); // false
 
 ##### `odd(value)`
 
-<<<<<<< HEAD
-Check _if_ a given value _is_ odd.
-=======
 Checks _if_ a given value _is_ odd.
->>>>>>> 4b955c9ad1f8460321bbcb8246b365dac08575ed
 
 ```js
 is.odd(9); // true
