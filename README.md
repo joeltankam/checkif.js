@@ -32,6 +32,8 @@ Check _if_ a given value _is_ `null`.
 
 ##### `undefined(value)`
 
+Alias `und(value)`
+
 Check _if_ a given value _is_ `undefined`.
 
 ##### `nan(value)`
@@ -45,6 +47,8 @@ is.nan(Number.NaN); // true
 
 ##### `array(value)`
 
+Alias `arr(value)`
+
 Check _if_ a given value is an array. This method is the same as `Array.isArray`, if available.
 
 ```js
@@ -54,6 +58,8 @@ is.array(new Array(0)); // true
 
 ##### `boolean(value)`
 
+Alias `bool(value)`
+
 Check _if_ a given value _is_ a boolean.
 
 ```js
@@ -62,6 +68,8 @@ is.boolean(new Boolean(0)); // true
 ```
 
 ##### `string(value)`
+
+Alias `str(value)`
 
 Check _if_ a given value _is_ a string.
 
@@ -91,6 +99,8 @@ is.date(new Date('November 23, 1998 03:24:00')); // true, my birthdate btw ;)
 
 ##### `number(value)`
 
+Alias `num(value)`
+
 Check _if_ a given value _is_ a number.
 
 ```js
@@ -100,6 +110,8 @@ is.number(1); // true
 ```
 
 ##### `regexp(value)`
+
+Alias `reg(value)`
 
 Check _if_ a given value _is_ a regular expression.
 
@@ -111,6 +123,8 @@ is.regexp(new RegExp()); // true
 
 ##### `object(value)`
 
+Alias `obj(value)`
+
 Check _if_ a given value _is_ an object.
 
 ```js
@@ -120,6 +134,8 @@ is.object('1'); // false
 ```
 
 ##### `pureObject(value)`
+
+Alias `pure(value)`
 
 Check _if_ a given value _is_ a pure JSON object.
 
@@ -131,6 +147,8 @@ is.pureObject(new Date()); // false
 
 ##### `function(value)`
 
+Alias `func(value)`
+
 Check _if_ a given value _is_ a function.
 
 ```js
@@ -141,6 +159,8 @@ is.function(new Function('x', 'return x')); // true
 
 ##### `error(value)`
 
+Alias `err(value)`
+
 Check _if_ a given value _is_ an error.
 
 ```js
@@ -149,6 +169,8 @@ is.error(new Error('Nothing works anymore')); // true
 ```
 
 ##### `domNode(value)`
+
+Alias `dom(value)`
 
 Check _if_ a given value _is_ a DOM node.
 
@@ -161,6 +183,8 @@ is.domNode(dom.window.document.body); // true
 ```
 
 ##### `windowObject(value)`
+
+Alias `window(value)`
 
 Check _if_ a given value _is_ a window object.
 
@@ -175,11 +199,13 @@ is.windowObject(dom.window); // true
 #### RegExp
 
 This group of methods allows to verify _if_ a given string _is_ from a specific known type of value.
+
 _To be implemented_
 
 #### String
 
 This group of methods allows to verify _if_ a given string _is_ a from a specific format.
+
 _To be implemented_
 
 #### Arithemetic
@@ -207,11 +233,13 @@ is.odd(10); // false
 #### Environment
 
 This group of methods allows to verify _if_ the current environment _is_ a specific environment.
+
 _To be implemented_
 
 #### Time
 
 This group of methods allows to verify _if_ a date _is_ a specific kind.
+
 _To be implemented_
 
 ### `all(enumerable, matcher, strict = false)`
@@ -261,13 +289,11 @@ all({ x: ['a', 'b'], y: ['a', 'c'] }, x => all(x, is.char)); // true
 
 ### `any(enumerable, matcher, strict = false)`
 
-```js
-import { any } from 'checkif.js';
-```
-
 This method verifies _if_ _any_ element in a given enumerable (array or object) matches a specific value or function.
 
 ```js
+import { any } from 'checkif.js';
+
 any([0,1,2,3], 2); // true
 any([0,1,2,3], x => x === 0); // true
 any({ x : 1, y : 0}, x => x === 1); // true
@@ -281,13 +307,13 @@ any([0,1,2,3], x => x === 5); //false
 
 ### `atLeast(enumerable, matcher, count = 1, strict = false)`
 
-```js
-import { atLeast } from 'checkif.js';
-```
+Alias `atl(enumerable, matcher, count = 1, strict = false)`
 
 This method verifies _if_ _at least_ a number of elements in a given enumerable (array or object) match a specific value or function.
 
 ```js
+import { atLeast } from 'checkif.js';
+
 atLeast([1,1,2,3], 1, 2); // true
 atLeast([0,0,2,0], x => x === 0, 3); // true
 atLeast({ x : 1, y : 0}, x => x === 1, 1); // true
@@ -301,13 +327,13 @@ atLeast([0,1,2,3], x => x === 5, 1); //false
 
 ### `atMost(enumerable, matcher, count = 1, strict = false)`
 
-```js
-import { atMost } from 'checkif.js';
-```
+Alias `atm(enumerable, matcher, count = 1, strict = false)`
 
 This method verifies _if_ _at most_ a number of elements in a given enumerable (array or object) match a specific value or function.
 
 ```js
+import { atMost } from 'checkif.js';
+
 atMost([0, 0, 1, 2], 0, 2); // true
 atMost([true, true, true, false], x => x === true, 3); // true
 atMost({ x: a, y: a }, x => x === a, 3); // true
