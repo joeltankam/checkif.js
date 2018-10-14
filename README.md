@@ -275,7 +275,43 @@ _To be implemented_
 
 This group of methods allows to verify _if_ a date _is_ a specific kind.
 
-_To be implemented_
+##### `past(value)`
+
+Checks _if_ a given value _is_ a Date object in the past.
+
+```js
+is.past(new Date(0)); // true
+is.past(new Date('April 30, 1993 16:40:00')); // true
+is.past(new Date('November 23, 3998 03:24:00')); // false
+is.past(new Date()); // false
+```
+
+##### `future(value)`
+
+Checks _if_ a given value _is_ a Date object in the future.
+
+```js
+is.future(new Date('November 23, 3998 03:24:00')); // true
+is.future(new Date(0)); // false
+is.future(new Date('April 30, 1993 16:40:00')); // false
+is.future(new Date()); // false
+```
+
+##### `today(value)`
+
+Checks _if_ a given value _is_ a Date object set today.
+
+```js
+let date = new Date();
+date.setHours(12);
+date.setMinutes(30);
+
+is.today(date); // true
+is.today(new Date()); // true
+is.today(new Date(0)); // false
+is.today(new Date('April 30, 1993 16:40:00')); // false
+is.today('November 23, 3998 03:24:00'); // false
+```
 
 ### `all(enumerable, matcher, strict = false)`
 
