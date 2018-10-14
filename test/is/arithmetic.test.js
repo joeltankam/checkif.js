@@ -24,3 +24,16 @@ describe('isOdd', () => {
     });
     testFalsyWithNullable(is.odd);
 });
+
+describe('isInteger', () => {
+    test('returns true on integers', () => {
+        expect(is.integer(12)).toBeTruthy();
+    });
+    test('returns false on others', () => {
+        expect(is.integer(3.14)).toBeFalsy();
+        expect(is.integer(Number.MIN_VALUE)).toBeFalsy();
+        expect(is.integer(Infinity)).toBeFalsy();
+        expect(is.integer('6')).toBeFalsy();
+    });
+    testFalsyWithNullable(is.odd);
+});
