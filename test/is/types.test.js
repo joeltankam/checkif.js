@@ -2,29 +2,55 @@ import is from '../../src/is/types';
 import { testFalsyWithNullable } from '../utils';
 import { JSDOM } from 'jsdom';
 
-describe('isObject', () => {
-    test('returns true on objects', () => {
-        expect(is.object({})).toBeTruthy();
-        expect(is.object(new String(''))).toBeTruthy();
-        expect(is.object(new Number(1))).toBeTruthy();
+describe('isNull', () => {
+    test('returns true on null', () => {
+        expect(is.null(null)).toBeTruthy();
     });
-    test('returns false on literals', () => {
-        expect(is.object(false)).toBeFalsy();
-        expect(is.object('')).toBeFalsy();
-        expect(is.object(1)).toBeFalsy();
+    test('returns false on anything else', () => {
+        expect(is.null({})).toBeFalsy();
     });
-    testFalsyWithNullable(is.object);
+});
+
+describe('isUndefined', () => {
+    test('returns true on undefined', () => {
+        expect(is.undefined(undefined)).toBeTruthy();
+        expect(is.undefined(void 0)).toBeTruthy();
+    });
+    test('returns false on anything else', () => {
+        expect(is.undefined({})).toBeFalsy();
+    });
+});
+
+describe('isNaN', () => {
+    test('returns true on NaN', () => {
+        expect(is.nan(NaN)).toBeTruthy();
+        expect(is.nan(Number.NaN)).toBeTruthy();
+        expect(is.nan(Number('number'))).toBeTruthy();
+    });
+    test('returns false on anything else', () => {
+        expect(is.nan({})).toBeFalsy();
+    });
+    testFalsyWithNullable(is.nan);
 });
 
 describe('isArray', () => {
-    test('returns true on arrays', () => {
-        expect(is.array([])).toBeTruthy();
-        expect(is.array(new Array(0))).toBeTruthy();
+    function testIsArray() {
+        test('returns true on arrays', () => {
+            expect(is.array([])).toBeTruthy();
+            expect(is.array(new Array(0))).toBeTruthy();
+        });
+        test('returns false on anything else', () => {
+            expect(is.array(false)).toBeFalsy();
+            expect(is.array('')).toBeFalsy();
+            expect(is.array(1)).toBeFalsy();
+        });
+    }
+    describe('Array.isArray exists', () => {
+        testIsArray();
     });
-    test('returns false', () => {
-        expect(is.array(false)).toBeFalsy();
-        expect(is.array('')).toBeFalsy();
-        expect(is.array(1)).toBeFalsy();
+    describe('Array.isArray does not exist', () => {
+        Array.isArray = null;
+        testIsArray();
     });
     testFalsyWithNullable(is.array);
 });
@@ -35,7 +61,7 @@ describe('isBoolean', () => {
         expect(is.boolean(true)).toBeTruthy();
         expect(is.boolean(Boolean(0))).toBeTruthy();
     });
-    test('returns false', () => {
+    test('returns false on anything else', () => {
         expect(is.boolean({})).toBeFalsy();
         expect(is.boolean('')).toBeFalsy();
         expect(is.boolean(1)).toBeFalsy();
@@ -50,7 +76,7 @@ describe('isString', () => {
         expect(is.string(String(''))).toBeTruthy();
         expect(is.string(new String(''))).toBeTruthy();
     });
-    test('returns false', () => {
+    test('returns false on anything else', () => {
         expect(is.string({})).toBeFalsy();
         expect(is.string(true)).toBeFalsy();
         expect(is.string(1)).toBeFalsy();
@@ -66,7 +92,7 @@ describe('isChar', () => {
         expect(is.char('1')).toBeTruthy();
         expect(is.char(' ')).toBeTruthy();
     });
-    test('returns false', () => {
+    test('returns false on anything else', () => {
         expect(is.char('')).toBeFalsy();
         expect(is.char('az')).toBeFalsy();
         expect(is.char(true)).toBeFalsy();
@@ -76,36 +102,64 @@ describe('isChar', () => {
     testFalsyWithNullable(is.char);
 });
 
-describe('isDomNode', () => {
-    test('returns true on chars', () => {
-        let dom = new JSDOM(`<html !DOCTYPE><body><p></p></body></html>`);
-        expect(is.domNode(dom.window.document.body.children[0])).toBeTruthy();
-    });
-    test('returns false', () => {
-        expect(is.domNode({})).toBeFalsy();
-    });
-    testFalsyWithNullable(is.domNode);
-});
-
 describe('isDate', () => {
     test('returns true on dates', () => {
         expect(is.date(new Date('December 17, 1995 03:24:00'))).toBeTruthy();
     });
-    test('returns false', () => {
+    test('returns false on anything else', () => {
         expect(is.date({})).toBeFalsy();
     });
     testFalsyWithNullable(is.date);
 });
 
-describe('isError', () => {
-    test('returns true on errors', () => {
-        expect(is.error(new Error(''))).toBeTruthy();
-        expect(is.error(Error(''))).toBeTruthy();
+describe('isNumber', () => {
+    test('returns true on numbers', () => {
+        expect(is.number(Number(1))).toBeTruthy();
+        expect(is.number(new Number(1))).toBeTruthy();
+        expect(is.number(1)).toBeTruthy();
     });
-    test('returns false', () => {
-        expect(is.error({})).toBeFalsy();
+    test('returns false on anything else', () => {
+        expect(is.number({})).toBeFalsy();
     });
-    testFalsyWithNullable(is.error);
+    testFalsyWithNullable(is.number);
+});
+
+describe('isRegexp', () => {
+    test('returns true on regular expressions', () => {
+        expect(is.regexp(/a/)).toBeTruthy();
+        expect(is.regexp(RegExp())).toBeTruthy();
+        expect(is.regexp(new RegExp())).toBeTruthy();
+    });
+    test('returns false on anything else', () => {
+        expect(is.regexp({})).toBeFalsy();
+    });
+    testFalsyWithNullable(is.regexp);
+});
+
+describe('isObject', () => {
+    test('returns true on objects', () => {
+        expect(is.object({})).toBeTruthy();
+        expect(is.object(new String(''))).toBeTruthy();
+        expect(is.object(new Number(1))).toBeTruthy();
+    });
+    test('returns false on literals', () => {
+        expect(is.object(false)).toBeFalsy();
+        expect(is.object('')).toBeFalsy();
+        expect(is.object(1)).toBeFalsy();
+    });
+    testFalsyWithNullable(is.object);
+});
+
+describe('isPureObject', () => {
+    test('returns true on pure objects', () => {
+        expect(is.pureObject({})).toBeTruthy();
+        expect(is.pureObject({ value: 1 })).toBeTruthy();
+    });
+    test('returns false on objects', () => {
+        expect(is.pureObject(new Date())).toBeFalsy();
+        expect(is.pureObject(new String)).toBeFalsy();
+    });
+    testFalsyWithNullable(is.pureObject);
 });
 
 describe('isFunction', () => {
@@ -114,86 +168,72 @@ describe('isFunction', () => {
         expect(is.function(x => x)).toBeTruthy();
         expect(is.function(new Function('x', 'return x'))).toBeTruthy();
     });
-    test('returns false', () => {
+    test('returns false on anything else', () => {
         expect(is.function({})).toBeFalsy();
     });
     testFalsyWithNullable(is.function);
 });
 
-describe('isPureObject', () => {
-    test('returns true on json objects', () => {
-        expect(is.pureObject({})).toBeTruthy();
-        expect(is.pureObject({ value: 1 })).toBeTruthy();
+describe('isError', () => {
+    test('returns true on errors', () => {
+        expect(is.error(new Error(''))).toBeTruthy();
+        expect(is.error(Error(''))).toBeTruthy();
     });
-    test('returns false', () => {
-        expect(is.pureObject(new Date())).toBeFalsy();
-        expect(is.pureObject(new String)).toBeFalsy();
+    test('returns false on anything else', () => {
+        expect(is.error({})).toBeFalsy();
     });
-    testFalsyWithNullable(is.pureObject);
+    testFalsyWithNullable(is.error);
 });
 
-describe('isNaN', () => {
-    test('returns true', () => {
-        expect(is.nan(NaN)).toBeTruthy();
-        expect(is.nan(Number.NaN)).toBeTruthy();
-        expect(is.nan(Number('number'))).toBeTruthy();
+describe('isDomNode', () => {
+    test('returns true on dom nodes', () => {
+        let dom = new JSDOM(`<html !DOCTYPE><body></body></html>`);
+        expect(is.domNode(dom.window.document.body)).toBeTruthy();
     });
-    test('returns false', () => {
-        expect(is.nan({})).toBeFalsy();
+    test('returns false on anything else', () => {
+        expect(is.domNode({})).toBeFalsy();
     });
-    testFalsyWithNullable(is.nan);
-});
-
-describe('isNull', () => {
-    test('returns true', () => {
-        expect(is.null(null)).toBeTruthy();
-    });
-    test('returns false', () => {
-        expect(is.null({})).toBeFalsy();
-    });
-});
-
-describe('isNumber', () => {
-    test('returns true', () => {
-        expect(is.number(Number(1))).toBeTruthy();
-        expect(is.number(new Number(1))).toBeTruthy();
-        expect(is.number(1)).toBeTruthy();
-    });
-    test('returns false', () => {
-        expect(is.number({})).toBeFalsy();
-    });
-    testFalsyWithNullable(is.number);
-});
-
-describe('isRegexp', () => {
-    test('returns true', () => {
-        expect(is.regexp(/a/)).toBeTruthy();
-        expect(is.regexp(RegExp())).toBeTruthy();
-        expect(is.regexp(new RegExp())).toBeTruthy();
-    });
-    test('returns false', () => {
-        expect(is.regexp({})).toBeFalsy();
-    });
-    testFalsyWithNullable(is.regexp);
-});
-
-describe('isUndefined', () => {
-    test('returns true', () => {
-        expect(is.undefined(undefined)).toBeTruthy();
-        expect(is.undefined(void 0)).toBeTruthy();
-    });
-    test('returns false', () => {
-        expect(is.undefined({})).toBeFalsy();
-    });
+    testFalsyWithNullable(is.domNode);
 });
 
 describe('isWindowObject', () => {
-    test('returns true on chars', () => {
+    test('returns true on window dom object', () => {
         let dom = new JSDOM(`<html !DOCTYPE></html>`);
         expect(is.windowObject(dom.window)).toBeTruthy();
     });
-    test('returns false', () => {
+    test('returns false on anything else', () => {
         expect(is.windowObject({})).toBeFalsy();
     });
     testFalsyWithNullable(is.windowObject);
 });
+
+describe('aliases', () => {
+    test('und', () => {
+        expect(is.arr).toEqual(is.array);
+    });
+    test('bool', () => {
+        expect(is.bool).toEqual(is.boolean);
+    });
+    test('num', () => {
+        expect(is.num).toEqual(is.number);
+    });
+    test('reg', () => {
+        expect(is.reg).toEqual(is.regexp);
+    });
+    test('obj', () => {
+        expect(is.obj).toEqual(is.object);
+    });
+    test('pure', () => {
+        expect(is.pure).toEqual(is.pureObject);
+    });
+    test('func', () => {
+        expect(is.func).toEqual(is.function);
+    });
+    test('err', () => {
+        expect(is.err).toEqual(is.error);
+    });
+    test('dom', () => {
+        expect(is.dom).toEqual(is.domNode);
+    });
+});
+
