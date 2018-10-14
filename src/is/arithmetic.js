@@ -26,6 +26,7 @@ export function isOdd(value) {
  * @returns {Boolean} `true` if the value is an integer; otherwise, `false`
  */
 export function isInteger(value) {
+    if (Number.isInteger) return Number.isInteger(value);
     if (!isNumber(value)) return false;
     return value % 1 === 0;
 }

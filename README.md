@@ -238,6 +238,7 @@ Checks _if_ a given value _is_ an integer.
 
 ```js
 is.integer(12); // true
+is.integer(10.0); // true
 is.integer(3.14); // false
 is.integer(Number.MIN_VALUE); // false
 is.integer(Infinity); // false
