@@ -315,7 +315,7 @@ is.future(new Date(0)); // false
 
 let pastDate = new Date();
 pastDate.setUTCFullYear(pastDate.getUTCFullYear() - 1);
-is.past(pastDate); // false
+is.future(pastDate); // false
 ```
 
 ##### `today(value)`
