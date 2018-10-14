@@ -21,6 +21,17 @@ describe('isUndefined', () => {
     });
 });
 
+describe('isNullable', () => {
+    test('returns true on nullable', () => {
+        expect(is.nullable(null)).toBeTruthy();
+        expect(is.nullable(undefined)).toBeTruthy();
+    });
+    test('returns false on anything else', () => {
+        expect(is.nullable(0)).toBeFalsy();
+        expect(is.nullable({})).toBeFalsy();
+    });
+});
+
 describe('isNaN', () => {
     test('returns true on NaN', () => {
         expect(is.nan(NaN)).toBeTruthy();
