@@ -286,7 +286,59 @@ _To be implemented_
 
 This group of methods allows to verify _if_ a date _is_ a specific kind.
 
-_To be implemented_
+##### `past(value)`
+
+Checks _if_ a given value _is_ a Date object in the past.
+
+```js
+is.past(new Date(0)); // true
+
+let pastDate = new Date();
+pastDate.setUTCFullYear(pastDate.getUTCFullYear() - 1);
+is.past(pastDate); // true
+
+let futureDate = new Date();
+futureDate.setUTCFullYear(futureDate.getUTCFullYear() + 1);
+is.past(futureDate); // false
+```
+
+##### `future(value)`
+
+Checks _if_ a given value _is_ a Date object in the future.
+
+```js
+let futureDate = new Date();
+futureDate.setUTCFullYear(futureDate.getUTCFullYear() + 1);
+is.future(futureDate); // true
+
+is.future(new Date(0)); // false
+
+let pastDate = new Date();
+pastDate.setUTCFullYear(pastDate.getUTCFullYear() - 1);
+is.future(pastDate); // false
+```
+
+##### `today(value)`
+
+Checks _if_ a given value _is_ a Date object set today.
+
+```js
+let date = new Date();
+date.setUTCHours(12);
+date.setUTCMinutes(30);
+
+is.today(date); // true
+is.today(new Date()); // true
+is.today(new Date(0)); // false
+
+let pastDate = new Date();
+pastDate.setUTCFullYear(pastDate.getUTCFullYear() - 1);
+is.today(pastDate); // false
+
+let futureDate = new Date();
+futureDate.setUTCFullYear(futureDate.getUTCFullYear() + 1);
+is.today(futureDate); // false
+```
 
 ### `all(enumerable, matcher, strict = false)`
 
