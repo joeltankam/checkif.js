@@ -232,6 +232,8 @@ is.odd(10); // false
 
 ##### `integer(value)`
 
+Alias `int(value)`
+
 Checks _if_ a given value _is_ an integer.
 
 ```js

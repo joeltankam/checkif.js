@@ -34,4 +34,5 @@ export default {
     even: isEven,
     odd: isOdd,
     integer: isInteger,
+    int: isInteger,
 };

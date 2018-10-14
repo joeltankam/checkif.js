@@ -35,5 +35,11 @@ describe('isInteger', () => {
         expect(is.integer(Infinity)).toBeFalsy();
         expect(is.integer('6')).toBeFalsy();
     });
-    testFalsyWithNullable(is.odd);
+    testFalsyWithNullable(is.integer);
+});
+
+describe('aliases', () => {
+    test('int', () => {
+        expect(is.int).toEqual(is.integer);
+    });
 });
