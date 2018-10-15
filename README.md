@@ -16,6 +16,17 @@ npm install checkif.js
 
 The library is constituted of a set of checkers to perform different verifications.
 
+* [is](#is)
+  * [Types](#types)
+  * [RegExp](#regexp)
+  * [String](#string)
+  * [Arithmetic](#arithmetic)
+  * [Time](#time)
+* [all](#all)
+* [any](#any)
+* [atLeast](#atLeast)
+* [atMost](#atMost)
+
 ### `is`
 
 ```js
@@ -340,7 +351,9 @@ futureDate.setUTCFullYear(futureDate.getUTCFullYear() + 1);
 is.today(futureDate); // false
 ```
 
-### `all(enumerable, matcher, strict = false)`
+### `all`
+
+`all(enumerable, matcher, strict = false)`
 
 ```js
 import { all } from 'checkif.js';
@@ -385,7 +398,9 @@ import { all, is } from 'checkif.js';
 all({ x: ['a', 'b'], y: ['a', 'c'] }, x => all(x, is.char)); // true
 ```
 
-### `any(enumerable, matcher, strict = false)`
+### `any`
+
+`any(enumerable, matcher, strict = false)`
 
 This method verifies _if_ _any_ element in a given enumerable (array or object) matches a specific value or function.
 
@@ -403,7 +418,9 @@ any([0,1,2,3], x => x === 5); //false
 
 `any` also supports _strict mode_.
 
-### `atLeast(enumerable, count, matcher, strict = false)`
+### `atLeast`
+
+`atLeast(enumerable, count, matcher, strict = false)`
 
 Alias `atl(enumerable, count, matcher, strict = false)`
 
@@ -423,7 +440,9 @@ atLeast([0,1,2,3], 1, x => x === 5); //false
 
 `atLeast` also supports _strict mode_.
 
-### `atMost(enumerable, count, matcher, strict = false)`
+### `atMost`
+
+`atMost(enumerable, count, matcher, strict = false)`
 
 Alias `atm(enumerable, count, matcher, strict = false)`
 
