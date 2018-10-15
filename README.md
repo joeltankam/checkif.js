@@ -24,8 +24,8 @@ The library is constituted of a set of checkers to perform different verificatio
   * [Time](#time)
 * [all](#all)
 * [any](#any)
-* [atLeast](#atLeast)
-* [atMost](#atMost)
+* [atLeast](#atleast)
+* [atMost](#atmost)
 
 ### `is`
 
