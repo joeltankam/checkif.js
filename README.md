@@ -228,11 +228,9 @@ _To be implemented_
 
 This group of methods allows to verify _if_ a given string _is_ a from a specific format.
 
-_To be implemented_
-
 ##### `lowerCase(value)`
 
-Check _if_ a given value _is_ a lower case string.
+Check _if_ a given string _is_ lower case.
 
 ```js
 is.lowerCase('abc'); // true
@@ -242,7 +240,7 @@ is.lowerCase('ABC'); // false
 
 ##### `upperCase(value)`
 
-Check _if_ a given value _is_ an upper case string.
+Check _if_ a given string _is_ upper case.
 
 ```js
 is.upperCase('ABC'); // true
