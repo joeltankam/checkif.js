@@ -1,5 +1,6 @@
 import is from '../../src/is/string';
 import { testFalsyWithNullable } from '../utils';
+import { testIntegrationWithHas } from '../has.test';
 
 describe('isLowerCase', () => {
     test('returns true on lower case strings', () => {
@@ -11,6 +12,7 @@ describe('isLowerCase', () => {
         expect(is.lowerCase('Abc')).toBeFalsy();
         expect(is.lowerCase('ABC')).toBeFalsy();
     });
+    testIntegrationWithHas(is.lowerCase, 'abc', 'A', 'B');
     testFalsyWithNullable(is.lowerCase);
 });
 
@@ -24,5 +26,6 @@ describe('isUpperCase', () => {
         expect(is.upperCase('aBC')).toBeFalsy();
         expect(is.upperCase('abc')).toBeFalsy();
     });
+    testIntegrationWithHas(is.upperCase, 'ABC', 'a', 'b');
     testFalsyWithNullable(is.upperCase);
 });

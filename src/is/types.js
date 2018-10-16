@@ -31,6 +31,15 @@ export function isNullable(value) {
 export const { isNaN } = Number;
 
 /**
+ * Determines whether a given value is NaN
+ * @param {*} value the value to check
+ * @returns {Boolean} `true` if the value is NaN; otherwise, `false`
+ */
+export function isNan(value) {
+    return isNaN(value);
+}
+
+/**
  * Determines whether a given value is an array
  * @param {*} value the value to check
  * @returns {Boolean} `true` if the value is an array; otherwise, `false`
@@ -82,7 +91,7 @@ export function isDate(value) {
  * @returns {Boolean} `true` if the value is a number; otherwise, `false`
  */
 export function isNumber(value) {
-    return !isNaN(value) && toString.call(value) === '[object Number]';
+    return !isNan(value) && toString.call(value) === '[object Number]';
 }
 
 /**
@@ -154,7 +163,7 @@ export default {
     undefined: isUndefined,
     und: isUndefined,
     nullable: isNullable,
-    nan: isNaN,
+    nan: isNan,
     array: isArray,
     arr: isArray,
     boolean: isBoolean,
