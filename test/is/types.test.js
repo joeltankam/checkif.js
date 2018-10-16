@@ -1,6 +1,7 @@
 import is from '../../src/is/types';
 import { testFalsyWithNullable } from '../utils';
 import { JSDOM } from 'jsdom';
+import { testIntegrationWithHas } from '../has.test';
 
 describe('isNull', () => {
     test('returns true on null', () => {
@@ -9,6 +10,7 @@ describe('isNull', () => {
     test('returns false on anything else', () => {
         expect(is.null({})).toBeFalsy();
     });
+    testIntegrationWithHas(is.null, null, 0, {});
 });
 
 describe('isUndefined', () => {
@@ -19,6 +21,7 @@ describe('isUndefined', () => {
     test('returns false on anything else', () => {
         expect(is.undefined({})).toBeFalsy();
     });
+    testIntegrationWithHas(is.undefined, undefined, 0, {});
 });
 
 describe('isNullable', () => {
@@ -30,6 +33,7 @@ describe('isNullable', () => {
         expect(is.nullable(0)).toBeFalsy();
         expect(is.nullable({})).toBeFalsy();
     });
+    testIntegrationWithHas(is.nullable, null, 0, {});
 });
 
 describe('isNaN', () => {
@@ -41,6 +45,7 @@ describe('isNaN', () => {
     test('returns false on anything else', () => {
         expect(is.nan({})).toBeFalsy();
     });
+    testIntegrationWithHas(is.nan, NaN, 0, 1);
     testFalsyWithNullable(is.nan);
 });
 
@@ -63,6 +68,7 @@ describe('isArray', () => {
         Array.isArray = null;
         testIsArray();
     });
+    testIntegrationWithHas(is.array, [], 0, {});
     testFalsyWithNullable(is.array);
 });
 
@@ -78,6 +84,7 @@ describe('isBoolean', () => {
         expect(is.boolean(1)).toBeFalsy();
         expect(is.boolean([])).toBeFalsy();
     });
+    testIntegrationWithHas(is.boolean, true, 0, {});
     testFalsyWithNullable(is.boolean);
 });
 
@@ -93,6 +100,7 @@ describe('isString', () => {
         expect(is.string(1)).toBeFalsy();
         expect(is.string([])).toBeFalsy();
     });
+    testIntegrationWithHas(is.string, '', 0, {});
     testFalsyWithNullable(is.string);
 });
 
@@ -110,6 +118,7 @@ describe('isChar', () => {
         expect(is.char(1)).toBeFalsy();
         expect(is.char([])).toBeFalsy();
     });
+    testIntegrationWithHas(is.char, 'a', 0, {});
     testFalsyWithNullable(is.char);
 });
 
@@ -120,6 +129,7 @@ describe('isDate', () => {
     test('returns false on anything else', () => {
         expect(is.date({})).toBeFalsy();
     });
+    testIntegrationWithHas(is.date, new Date(), 0, {});
     testFalsyWithNullable(is.date);
 });
 
@@ -132,6 +142,7 @@ describe('isNumber', () => {
     test('returns false on anything else', () => {
         expect(is.number({})).toBeFalsy();
     });
+    testIntegrationWithHas(is.number, 0, [], {});
     testFalsyWithNullable(is.number);
 });
 
@@ -144,6 +155,7 @@ describe('isRegexp', () => {
     test('returns false on anything else', () => {
         expect(is.regexp({})).toBeFalsy();
     });
+    testIntegrationWithHas(is.regexp, /a/, 'a', {});
     testFalsyWithNullable(is.regexp);
 });
 
@@ -158,6 +170,7 @@ describe('isObject', () => {
         expect(is.object('')).toBeFalsy();
         expect(is.object(1)).toBeFalsy();
     });
+    testIntegrationWithHas(is.object, {}, 0, '');
     testFalsyWithNullable(is.object);
 });
 
@@ -170,6 +183,7 @@ describe('isPureObject', () => {
         expect(is.pureObject(new Date())).toBeFalsy();
         expect(is.pureObject(new String)).toBeFalsy();
     });
+    testIntegrationWithHas(is.pure, {}, 0, '');
     testFalsyWithNullable(is.pureObject);
 });
 
@@ -182,6 +196,7 @@ describe('isFunction', () => {
     test('returns false on anything else', () => {
         expect(is.function({})).toBeFalsy();
     });
+    testIntegrationWithHas(is.function, x => x, 0, {});
     testFalsyWithNullable(is.function);
 });
 
@@ -193,28 +208,33 @@ describe('isError', () => {
     test('returns false on anything else', () => {
         expect(is.error({})).toBeFalsy();
     });
+    testIntegrationWithHas(is.error, new Error(), 0, {});
     testFalsyWithNullable(is.error);
 });
 
 describe('isDomNode', () => {
+    let dom = new JSDOM(`<html !DOCTYPE><body></body></html>`);
+    const domNode = dom.window.document.body;
     test('returns true on dom nodes', () => {
-        let dom = new JSDOM(`<html !DOCTYPE><body></body></html>`);
-        expect(is.domNode(dom.window.document.body)).toBeTruthy();
+        expect(is.domNode(domNode)).toBeTruthy();
     });
     test('returns false on anything else', () => {
         expect(is.domNode({})).toBeFalsy();
     });
+    testIntegrationWithHas(is.domNode, domNode, 0, {});
     testFalsyWithNullable(is.domNode);
 });
 
 describe('isWindowObject', () => {
+    const dom = new JSDOM(`<html !DOCTYPE></html>`);
+    const windowObject = dom.window;
     test('returns true on window dom object', () => {
-        let dom = new JSDOM(`<html !DOCTYPE></html>`);
-        expect(is.windowObject(dom.window)).toBeTruthy();
+        expect(is.windowObject(windowObject)).toBeTruthy();
     });
     test('returns false on anything else', () => {
         expect(is.windowObject({})).toBeFalsy();
     });
+    testIntegrationWithHas(is.windowObject, windowObject, 0, {});
     testFalsyWithNullable(is.windowObject);
 });
 

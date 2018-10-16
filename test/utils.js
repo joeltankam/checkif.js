@@ -1,7 +1,18 @@
-export function testFalsyWithNullable(_function) {
+function downcaseFirstLetter(string) {
+    return string.charAt(0).toLowerCase() + string.slice(1);
+}
+
+export function getFunctionShortName(func) {
+    var name = func.name;
+    if (name.startsWith('is'))
+        name = downcaseFirstLetter(name.slice(2));
+    return name;
+}
+
+export function testFalsyWithNullable(func) {
     test('returns false on nullable', () => {
-        expect(_function(null)).toBeFalsy();
-        expect(_function(undefined)).toBeFalsy();
-        expect(_function()).toBeFalsy();
+        expect(func(null)).toBeFalsy();
+        expect(func(undefined)).toBeFalsy();
+        expect(func()).toBeFalsy();
     });
 }
