@@ -45,7 +45,7 @@ describe('isInteger', () => {
         testIsInteger();
     });
     describe('Number.isInteger does not exist', () => {
-        Number.isNaN = null;
+        Number.isInteger = null;
         testIsInteger();
     })
     testIntegrationWithHas(is.integer, 1, 1.1, 1.2, 1.3);
