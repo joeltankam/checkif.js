@@ -24,6 +24,7 @@ The library is constituted of a set of checkers to perform different verificatio
   * [Time](#time)
 * [all](#all)
 * [any](#any)
+* [has](#has)
 * [atLeast](#atleast)
 * [atMost](#atmost)
 
@@ -415,6 +416,22 @@ any([0,1,2,3], x => x === 5); //false
 ```
 
 `any` also supports _strict mode_.
+
+### `has`
+
+This group of methods allows to verify _if_ a given enumerable (array or object) _has_ an element of a specific condition. This checker contains the same methods as `is`. In fact, `has.method(array)` is equivalent to `any(array, is.method)`.
+
+```js
+import { any } from 'checkif.js';
+
+has.uppercase(['abc', 'Abc', 'ABC']); // true
+has.even({ x : 1, y : 2, z : 3}); // true
+has.function({ x : function(){}}); // true
+
+has.nan([0, 1, 2, 3]); // false
+has.integer([1.2, 1.3]); // false
+has.null([]); // false
+```
 
 ### `atLeast`
 
