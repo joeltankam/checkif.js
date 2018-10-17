@@ -1,6 +1,6 @@
 import is from '../../src/is/arithmetic';
 import { testFalsyWithNullable } from '../utils';
-import { testIntegrationWithHas } from '../has.test';
+import { testIntegrationWithAllHasCheckers } from '../has.test';
 
 describe('isEven', () => {
     test('returns true on even numbers', () => {
@@ -11,7 +11,7 @@ describe('isEven', () => {
         expect(is.even(11)).toBeFalsy();
         expect(is.even(13)).toBeFalsy();
     });
-    testIntegrationWithHas(is.even, 2, 1, 3, 5);
+    testIntegrationWithAllHasCheckers(is.even, 2, 1, 3, 5);
     testFalsyWithNullable(is.even);
 });
 
@@ -24,7 +24,7 @@ describe('isOdd', () => {
         expect(is.odd(10)).toBeFalsy();
         expect(is.odd(14)).toBeFalsy();
     });
-    testIntegrationWithHas(is.odd, 1, 2, 4, 6);
+    testIntegrationWithAllHasCheckers(is.odd, 1, 2, 4, 6);
     testFalsyWithNullable(is.odd);
 });
 
@@ -48,7 +48,7 @@ describe('isInteger', () => {
         Number.isInteger = null;
         testIsInteger();
     })
-    testIntegrationWithHas(is.integer, 1, 1.1, 1.2, 1.3);
+    testIntegrationWithAllHasCheckers(is.integer, 1, 1.1, 1.2, 1.3);
     testFalsyWithNullable(is.integer);
 });
 

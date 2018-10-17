@@ -1,6 +1,6 @@
 import is from '../../src/is/datetime';
 import { testFalsyWithNullable } from '../utils';
-import { testIntegrationWithHas } from '../has.test';
+import { testIntegrationWithAllHasCheckers } from '../has.test';
 
 describe('isPast', () => {
     let past = new Date();
@@ -17,7 +17,7 @@ describe('isPast', () => {
         future.setUTCFullYear(future.getUTCFullYear() + 5);
         expect(is.past(future)).toBeFalsy();
     });
-    testIntegrationWithHas(is.past, past, future)
+    testIntegrationWithAllHasCheckers(is.past, past, future)
     testFalsyWithNullable(is.past);
 });
 
@@ -36,7 +36,7 @@ describe('isFuture', () => {
         expect(is.future(new Date(0))).toBeFalsy();
         expect(is.future(past)).toBeFalsy();
     });
-    testIntegrationWithHas(is.future, future, past);
+    testIntegrationWithAllHasCheckers(is.future, future, past);
     testFalsyWithNullable(is.future);
 });
 
@@ -58,7 +58,7 @@ describe('isToday', () => {
         expect(is.today(future)).toBeFalsy();
         expect(is.today(past)).toBeFalsy();
     });
-    testIntegrationWithHas(is.today, today, past, future);
+    testIntegrationWithAllHasCheckers(is.today, today, past, future);
     testFalsyWithNullable(is.today);
 });
 
