@@ -21,6 +21,7 @@ The library is constituted of a set of checkers to perform different verificatio
   * [RegExp](#regexp)
   * [String](#string)
   * [Arithmetic](#arithmetic)
+  * [Environment](#environment)
   * [Time](#time)
 * [all](#all)
 * [any](#any)
@@ -51,14 +52,7 @@ Checks _if_ a given value _is_ `undefined`.
 
 ##### `nullable(value)`
 
-Checks _if_ a given value _is_ nullable.
-
-```js
-is.nullable(null); // true
-is.nullable(undefined); // true
-is.nullable(0); // false
-is.nullable({}); //false
-```
+Checks _if_ a given value _is_ `null` or `undefined`.
 
 ##### `nan(value)`
 
