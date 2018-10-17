@@ -25,6 +25,7 @@ The library is constituted of a set of checkers to perform different verificatio
 * [all](#all)
 * [any](#any)
 * [has](#has)
+* [hasOnly](#hasonly)
 * [atLeast](#atleast)
 * [atMost](#atmost)
 
@@ -419,7 +420,7 @@ any([0,1,2,3], x => x === 5); //false
 
 ### `has`
 
-This group of methods allows to verify _if_ a given enumerable (array or object) _has_ an element of a specific condition. This checker contains the same methods as `is`. In fact, `has.method(array)` is equivalent to `any(array, is.method)`.
+This group of methods allows to verify _if_ a given enumerable (array or object) _has_ an element verifying a specific condition. This checker contains the same methods as `is`. In fact, `has.method(array)` is equivalent to `any(array, is.method)`.
 
 ```js
 import { any } from 'checkif.js';
@@ -431,6 +432,23 @@ has.function({ x : function(){}}); // true
 has.nan([0, 1, 2, 3]); // false
 has.integer([1.2, 1.3]); // false
 has.null([]); // false
+```
+
+### `hasOnly`
+
+This group of methods allows to verify _if_ a given enumerable (array or object) _has only_ elements verifying a specific condition. This checker contains the same methods as `is`.
+
+`hasOnly.method(array)` is equivalent to `all(array, is.method)`.
+
+```js
+import { any } from 'checkif.js';
+
+hasOnly.lowercase(['abc', 'def', 'ghi']); // true
+hasOnly.integer({ x : 1, y : 2, z : 3}); // true
+hasOnly.function({ x : function(){}, y : x => x}); // true
+
+hasOnly.null([null, 1, 2, 3]); // false
+hasOnly.odd([1, 2, 3]); // false
 ```
 
 ### `atLeast`
