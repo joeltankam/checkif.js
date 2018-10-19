@@ -1,4 +1,5 @@
 const { toString } = Object.prototype;
+const uriRegex = /^([a-z]+\:\/{2})(([a-zA-Z0-9]+([_ -]*[a-zA-Z0-9])*)(:[!#$%^&*\)(}{\[\]\\\|\/\~\`\;\"\'\?\>\<\+\-\.a-zA-Z0-9]*@)?)?([w]{3}\.)?([a-zA-Z0-9]+([_ -]*[a-zA-Z0-9])*\.[a-z]*)(\:[\d]*)?(\/[a-zA-Z0-9]+(\.[a-zA-Z]+)?)*((\?[a-zA-Z]+\=[a-zA-Z0-9]+)*)?((\#[a-zA-Z]+(\=[a-zA-Z0-9]+)?)*)?/
 
 /**
  * Determines whether a given value is null
@@ -158,6 +159,19 @@ export function isWindowObject(value) {
     return value != null && typeof value === 'object' && 'setInterval' in value;
 }
 
+/**
+ * Determines whether a given value is a uri
+ * @param {*} value the value to check
+ * @returns {Boolean} `true` if the value is a URI; otherwise, `false`
+ */
+export function isURI(value) {
+    if (isString(value)) {
+        return uriRegex.test(value);
+    } else {
+        return false;
+    }
+}
+
 export default {
     null: isNull,
     undefined: isUndefined,
@@ -188,4 +202,5 @@ export default {
     dom: isDomNode,
     windowObject: isWindowObject,
     window: isWindowObject,
+    uri: isURI
 };
