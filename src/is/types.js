@@ -197,5 +197,5 @@ export default {
     dom: isDomNode,
     windowObject: isWindowObject,
     window: isWindowObject,
-    promise:isPromise
+    promise: isPromise,
 };
