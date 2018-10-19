@@ -158,6 +158,15 @@ export function isWindowObject(value) {
     return value != null && typeof value === 'object' && 'setInterval' in value;
 }
 
+/**
+ * Determines whether a given value is a promise
+ * @param {*} value the value to check
+ * @returns {Boolean} `true` if the value is a promise; otherwise, `false`
+ */
+export function isPromise(value) {
+    return typeof value.then === 'function';
+}
+
 export default {
     null: isNull,
     undefined: isUndefined,
@@ -188,4 +197,5 @@ export default {
     dom: isDomNode,
     windowObject: isWindowObject,
     window: isWindowObject,
+    promise:isPromise
 };
