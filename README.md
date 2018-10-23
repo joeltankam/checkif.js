@@ -29,6 +29,8 @@ The library is constituted of a set of checkers to perform different verificatio
 * [hasOnly](#hasonly)
 * [atLeast](#atleast)
 * [atMost](#atmost)
+* [hasAtLeast](#hasatleast)
+* [hasAtMost](#hasatmost)
 
 ### `is`
 
@@ -489,6 +491,22 @@ atMost({ x: _function, y: _function }, 1, _function); // false
 ```
 
 `atMost` also supports _strict mode_.
+
+### `hasAtLeast`
+
+`hasAtLeast(count)`
+
+This group of methods allows to verify _if_ a given enumerable (array or object) _has at least_ a number of elements verifying a specific condition from `is`.
+`hasAtLeast(count).method(enumerable)` is equivalent to `atLeast(enumerable, count, is.method)`.
+
+### `hasAtMost`
+
+`hasAtMost(count)`
+
+This group of methods allows to verify _if_ a given enumerable (array or object) _has at most_ a number of elements verifying a specific condition from `is`.
+`hasAtMost(count).method(enumerable)` is equivalent to `atMost(enumerable, count, is.method)`.
+
+Keep in mind that using the `has*` notation is less performant than using the equivalent `atLeast` or `atMost` function. **Everytime** `has*(count)` is called, the resulting functions are regenerated from `is`.
 
 ## Contributing
 
