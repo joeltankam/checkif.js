@@ -1,5 +1,4 @@
 const { toString } = Object.prototype;
-const uriRegex = /^([a-z]+\:\/{2})(([a-zA-Z0-9]+([_ -]*[a-zA-Z0-9])*)(:[!#$%^&*\)(}{\[\]\\\|\/\~\`\;\"\'\?\>\<\+\-\.a-zA-Z0-9]*@)?)?([w]{3}\.)?([a-zA-Z0-9]+([_ -]*[a-zA-Z0-9])*\.[a-z]*)(\:[\d]*)?(\/[a-zA-Z0-9]+(\.[a-zA-Z]+)?)*((\?[a-zA-Z]+\=[a-zA-Z0-9]+)*)?((\#[a-zA-Z]+(\=[a-zA-Z0-9]+)?)*)?/
 
 /**
  * Determines whether a given value is null
