@@ -158,19 +158,6 @@ export function isWindowObject(value) {
     return value != null && typeof value === 'object' && 'setInterval' in value;
 }
 
-/**
- * Determines whether a given value is a uri
- * @param {*} value the value to check
- * @returns {Boolean} `true` if the value is a URI; otherwise, `false`
- */
-export function isURI(value) {
-    if (isString(value)) {
-        return uriRegex.test(value);
-    } else {
-        return false;
-    }
-}
-
 export default {
     null: isNull,
     undefined: isUndefined,
@@ -200,6 +187,5 @@ export default {
     domNode: isDomNode,
     dom: isDomNode,
     windowObject: isWindowObject,
-    window: isWindowObject,
-    uri: isURI
+    window: isWindowObject
 };
