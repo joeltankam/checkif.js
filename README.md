@@ -246,7 +246,7 @@ is.upperCase('ABC 123'); // true
 is.upperCase('abc'); // false
 ```
 
-#### Arithemetic
+#### Arithmetic
 
 This group of methods allows to verify _if_ a given number _is_ a from a specific class of numbers.
 
