@@ -187,5 +187,5 @@ export default {
     domNode: isDomNode,
     dom: isDomNode,
     windowObject: isWindowObject,
-    window: isWindowObject
+    window: isWindowObject,
 };

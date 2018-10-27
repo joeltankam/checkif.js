@@ -9,5 +9,5 @@ export default {
     ...arithmetic,
     ...string,
     ...datetime,
-    ...regexp
+    ...regexp,
 };
