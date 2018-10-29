@@ -221,6 +221,16 @@ is.windowObject(dom.window); // true
 This group of methods allows to verify _if_ a given string _is_ from a specific known type of value.
 
 _To be implemented_
+#### `uri(value)`
+
+Check _if_ a given string _is_ URI.
+
+```js
+is.uri('http://www.example.com'); // true
+is.uri('http://abc:123@www.example.com/path/path2?=val#frag=valfrag'); // true
+is.uri('ABC'); // false
+```
+
 
 #### String
 
