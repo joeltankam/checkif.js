@@ -220,7 +220,36 @@ is.windowObject(dom.window); // true
 
 This group of methods allows to verify _if_ a given string _is_ from a specific known type of value.
 
-_To be implemented_
+##### `email(value)`
+Check _if_ a given string _is_ an email. This verification is done according to [RFC5322](https://tools.ietf.org/html/rfc5322#section-3.2.3) official standard.
+
+```js
+is.email('simple@example.com') // true
+is.email('very.common@example.com') // true
+is.email('disposable.style.email.with+symbol@example.com') // true
+is.email('other.email-with-hyphen@example.com') // true
+is.email('fully-qualified-domain@example.com') // true
+is.email('user.name+tag+sorting@example.com') // true
+is.email('x@example.com') // true
+is.email('example-indeed@strange-example.com') // true
+is.email('example@s.example') // true
+is.email('" "@example.org') // true
+is.email('"john..doe"@example.com') // true
+is.email('example.with.ip@[192.168.2.1]') // true
+is.email('"with(comment)@example.com') // true
+is.email('"with@(comment)example.com') // true
+
+is.email('Abc.example.com') // false, no @ character
+is.email('@example.com') // false, no local part
+is.email('A@b@c@example.com') // false, only one @ is allowed outside quotation marks
+is.email('a"b(c)d,e:f;g<h>i[j\k]l@example.com') // false, none of the special characters in this local-part are allowed outside quotation marks
+is.email('just"not"right@example.com') // false, quoted strings must be dot separated or the only element making up the local-part
+is.email('this is"not\allowed@example.com') // false, spaces, quotes, and backslashes may only exist when within quoted strings and preceded by a backslash
+is.email('this\ still\"not\\allowed@example.com') // false, even if escaped (preceded by a backslash), spaces, quotes, and backslashes must still be contained by quotes
+is.email('1234567890123456789012345678901234567890123456789012345678901234+x@example.com') // false, local part is longer than 64 characters
+is.email('john..doe@example.com') // false, double dot before @
+is.email('john.doe@example..com') // false, double dot after @
+```
 
 #### String
 
