@@ -164,7 +164,7 @@ export function isWindowObject(value) {
  * @returns {Boolean} `true` if the value is a promise; otherwise, `false`
  */
 export function isPromise(value) {
-    return typeof value.then === 'function';
+    return toString.call(value) === '[object Promise]';
 }
 
 export default {
