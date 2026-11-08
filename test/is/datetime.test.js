@@ -58,6 +58,21 @@ describe('isToday', () => {
         expect(is.today(future)).toBeFalsy();
         expect(is.today(past)).toBeFalsy();
     });
+
+    test('returns false on another day of the same month with the same weekday', () => {
+        let otherSameWeekday = new Date();
+        otherSameWeekday.setUTCDate(otherSameWeekday.getUTCDate() + 7);
+        if (otherSameWeekday.getUTCMonth() !== new Date().getUTCMonth()) {
+            otherSameWeekday.setUTCDate(otherSameWeekday.getUTCDate() - 14);
+        }
+        expect(is.today(otherSameWeekday)).toBeFalsy();
+    });
+
+    test('returns false on a different day of the same month', () => {
+        let otherDay = new Date();
+        otherDay.setUTCDate((otherDay.getUTCDate() % 28) + 1);
+        expect(is.today(otherDay)).toBeFalsy();
+    });
     testIntegrationWithAllHasCheckers(is.today, today, past, future);
     testFalsyWithNullable(is.today);
 });
