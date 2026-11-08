@@ -30,7 +30,7 @@ function isToday(value) {
     const now = new Date();
     return (value.getUTCFullYear() === now.getUTCFullYear()
         && value.getUTCMonth() === now.getUTCMonth()
-        && value.getUTCDay() === now.getUTCDay());
+        && value.getUTCDate() === now.getUTCDate());
 }
 
 export default {
