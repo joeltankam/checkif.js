@@ -22,7 +22,9 @@ install:
 script:
   # Tests with coverage
   - npm run test-ci
-  # Report coverage on codacy
-  - cat ./coverage/lcov.info | codacy-coverage --projectName checkif.js --token 1f405c7cc58b480d8e1f96a05a77777a --verbose
+  # Report coverage on codacy. The project token comes from the CODACY_PROJECT_TOKEN
+  # environment variable, which holds the encrypted Codacy token of this repository.
+  # Skip the upload while that variable is not set, so the build keeps passing.
+  - if [ -n "$CODACY_PROJECT_TOKEN" ]; then cat ./coverage/lcov.info | codacy-coverage --projectName checkif.js --verbose; fi
   # Integration tests
   - npm run build
